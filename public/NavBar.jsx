@@ -1,0 +1,103 @@
+import React from 'react'
+import {Link} from 'react-router'
+import styled from 'styled-components'
+
+const NavBar = () => (
+  <NavContainer>
+    <NavFixed>
+      <NavWrap>
+        <StyledNavBar>
+          <NavLogo>
+            <StyledImage src={require('./img/tv-icon.png')} />
+          </NavLogo>
+          <StyledNavList>
+            <StyledNavItem key='1'>
+              <StyledLink to='/' activeClassName={'active'} onlyActiveOnIndex>
+                Home
+              </StyledLink>
+            </StyledNavItem>
+            <StyledNavItem key='2'>
+              <StyledLink to='/series-list' activeClassName={'active'}>
+                Series List
+              </StyledLink>
+            </StyledNavItem>
+          </StyledNavList>
+        </StyledNavBar>
+      </NavWrap>
+    </NavFixed>
+  </NavContainer>
+)
+
+const NavContainer = styled.div`
+  height: 4em;
+  display: block;
+`
+
+const NavFixed = styled.div`
+  position: fixed;
+  top: 0;
+  background: black;
+  padding: 0;
+  height: 4em;
+  z-index: 999;
+  width: 100%;
+`
+
+const NavWrap = styled.div`
+  text-align: left;
+  margin: 0 auto;
+  width: 95%;
+  position: relative;
+`
+
+const NavLogo = styled.div`
+  display: inline-block;
+  margin-top: 0.4em;
+`
+
+const StyledLink = styled(Link)`
+  fontSize: 1.1em;
+  color: #bbb;
+  padding: 0.7em 1rem 0.6em 1rem;
+  textDecoration: none;
+  &:hover {
+    color: white;
+  }
+  &.active {
+    background: rgb(164, 0, 0);
+    color: white;
+  }
+`
+
+const StyledNavBar = styled.div`
+  background: black;
+  display: block;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  height: 53px;
+`
+
+const StyledImage = styled.img`
+  display: block;
+  width: auto;
+  height: 47px;
+  text-decoration: none
+`
+
+const StyledNavList = styled.ul`
+  line-height: 4em;
+  position: absolute;
+  display: inline-block;
+  text-transform: uppercase;
+  text-align: left;
+  margin: 0;
+`
+
+const StyledNavItem = styled.li`
+  display: inline-block;
+  line-height: 1em;
+  text-align: -webkit-match-parent;
+`
+
+export default NavBar
