@@ -3,35 +3,28 @@ import {Link} from 'react-router'
 import styled from 'styled-components'
 
 const NavBar = () => (
-  <NavContainer>
-    <NavFixed>
-      <NavWrap>
-        <StyledNavBar>
-          <NavLogo>
-            <StyledImage src={require('./img/tv-icon.png')} />
-          </NavLogo>
-          <StyledNavList>
-            <StyledNavItem key='1'>
-              <StyledLink to='/' activeClassName={'active'} onlyActiveOnIndex>
-                Home
-              </StyledLink>
-            </StyledNavItem>
-            <StyledNavItem key='2'>
-              <StyledLink to='/series-list' activeClassName={'active'}>
-                Series List
-              </StyledLink>
-            </StyledNavItem>
-          </StyledNavList>
-        </StyledNavBar>
-      </NavWrap>
-    </NavFixed>
-  </NavContainer>
+  <NavFixed>
+    <NavWrap>
+      <StyledNavBar>
+        <NavLogo>
+          <StyledImage src={require('public/img/tv-icon.png')} />
+        </NavLogo>
+        <StyledNavList>
+          <StyledNavItem key='1'>
+            <StyledLink to='/' activeClassName={'active'} onlyActiveOnIndex>
+              Home
+            </StyledLink>
+          </StyledNavItem>
+          <StyledNavItem key='2'>
+            <StyledLink to='/series-list' activeClassName={'active'}>
+              Series List
+            </StyledLink>
+          </StyledNavItem>
+        </StyledNavList>
+      </StyledNavBar>
+    </NavWrap>
+  </NavFixed>
 )
-
-const NavContainer = styled.div`
-  height: 4em;
-  display: block;
-`
 
 const NavFixed = styled.div`
   position: fixed;
