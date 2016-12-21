@@ -1,0 +1,71 @@
+# An object with an ID
+interface Node {
+  # The id of the object.
+  id: ID!
+}
+
+# Information about pagination in a connection.
+type PageInfo {
+  # When paginating forwards, are there more items?
+  hasNextPage: Boolean!
+
+  # When paginating backwards, are there more items?
+  hasPreviousPage: Boolean!
+
+  # When paginating backwards, the cursor to continue.
+  startCursor: String
+
+  # When paginating forwards, the cursor to continue.
+  endCursor: String
+}
+
+type Query {
+  # Fetches an object given its ID
+  node(
+    # The ID of an object
+    id: ID!
+  ): Node
+  seriesList: SeriesList
+}
+
+# A TV-series
+type Series implements Node {
+  # The ID of an object
+  id: ID!
+
+  # Title of the series
+  title: String
+
+  # Year the series was released
+  year: String
+
+  # List of creators/writers of the series
+  creators: [String]
+}
+
+# A connection to a list of items.
+type SeriesConnection {
+  # Information to aid in pagination.
+  pageInfo: PageInfo!
+
+  # A list of edges.
+  edges: [SeriesEdge]
+}
+
+# An edge in a connection.
+type SeriesEdge {
+  # The item at the end of the edge
+  node: Series
+
+  # A cursor for use in pagination
+  cursor: String!
+}
+
+# List of series
+type SeriesList implements Node {
+  # The ID of an object
+  id: ID!
+
+  # List of series
+  series(after: String, first: Int, before: String, last: Int, filter: String): SeriesConnection
+}
