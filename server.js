@@ -63,6 +63,7 @@ const app = new WebpackDevServer(compiler, {
   contentBase: '/public',
   proxy: {'/graphql': `http://localhost:${GRAPHQL_PORT}`},
   publicPath: '/src',
+  historyApiFallback: true,
   stats: {colors: true}
 })
 
