@@ -2,17 +2,21 @@ import React from 'react'
 import Relay from 'react-relay'
 import styled from 'styled-components'
 
+import Show from './show.jsx'
+
 class SeriesList extends React.Component {
   constructor (props) {
     super(props)
-    console.log(props)
   }
 
   render () {
+    const series = this.props.seriesList.series.edges.map(edge => edge.node)
     return (
       <PageContainer>
         <PageTitle>Series list</PageTitle>
-        <ShowContainer></ShowContainer>
+        <ShowsContainer>
+          {series.map((show, index) => <Show show={show} key={index}/>)}
+        </ShowsContainer>
       </PageContainer>
     )
   }
@@ -41,6 +45,10 @@ export default Relay.createContainer(SeriesList, {
   }
 })
 
+SeriesList.propTypes = {
+  seriesList: React.PropTypes.object
+}
+
 const PageContainer = styled.div`
   position: relative;
   width: 100%;
@@ -60,10 +68,15 @@ const PageTitle = styled.h1`
   margin: 0.2em;
 `
 
-const ShowContainer = styled.div`
-  background: yellow;
+const ShowsContainer = styled.div`
   position: relative;
   width: 100%;
   height: 93%;
   bottom: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
 `
