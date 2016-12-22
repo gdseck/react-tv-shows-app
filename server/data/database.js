@@ -693,7 +693,7 @@ module.exports = {
 }
 
 const filteredResults = (searchTerm) => {
-  if (!searchTerm) return []
+  if (!searchTerm) return data.slice(5)
 
   return data.filter(item => {
     return (
