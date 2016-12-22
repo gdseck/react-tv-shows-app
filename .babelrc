@@ -3,7 +3,12 @@
     "react",
     "es2015",
     "stage-0",
-    "stage-1"
+    "stage-1",
+    {
+      "plugins": [
+        "./server/build/babelRelayPlugin"
+      ]
+    }
   ],
-  "plugins": ["react-hot-loader/babel"]
+  "plugins": ["react-hot-loader/babel", "transform-runtime"]
 }

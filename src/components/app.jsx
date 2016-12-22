@@ -1,4 +1,5 @@
 import React from 'react'
+
 import NavBar from './navbar.jsx'
 
 export default class App extends React.Component {
@@ -7,7 +8,6 @@ export default class App extends React.Component {
       <div style={{top: '4em', position: 'relative'}}>
         <NavBar />
         {this.props.children}
-        <div style={{height: '1000px', background: 'yellow'}} />
       </div>
     )
   }

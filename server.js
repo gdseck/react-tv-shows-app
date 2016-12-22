@@ -31,7 +31,6 @@ const webpackConfig = {
     loaders: [
       {
         exclude: /node_modules/,
-        include: path.join(__dirname, 'src'),
         loader: 'babel',
         test: /\.jsx?$/
       },
