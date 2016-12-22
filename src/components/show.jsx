@@ -19,7 +19,6 @@ const ShowContainer = styled.div`
   display: inline-block;
   height: 12%;
   width: 300px;
-  flex-basis: 26%;
   overflow: auto;
   border: 1px solid lightgrey;
   border-radius: 3px;
@@ -31,6 +30,7 @@ const ShowContainer = styled.div`
 const ShowDataList = styled.ul`
   list-style-type: none;
   padding-left: 0;
+  height: 6em;
 `
 
 const ShowDataListItem = styled.li`

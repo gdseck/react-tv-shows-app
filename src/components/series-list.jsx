@@ -30,7 +30,7 @@ export default Relay.createContainer(SeriesList, {
     seriesList: () => Relay.QL`
       fragment on SeriesList {
         id
-        series (first: 10, filter: $filter){
+        series (first: 50, filter: $filter){
           edges {
             node {
               id
@@ -57,7 +57,7 @@ const PageContainer = styled.div`
   border: 1px solid lightgray;
   border-radius: 3px;
   padding: 2em;
-  display: block;
+  flex: 1 1 auto;
   max-width: 80%;
   background: white;
 `

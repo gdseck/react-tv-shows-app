@@ -19,10 +19,13 @@ App.propTypes = {
 }
 
 const StyledApp = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: calc(100vh - 4em);
   top: 4em;
   width: 100%;
   bottom: 0;
-  position: absolute;
+  position: relative;
   font-family: Noto Sans;
   background: beige;
 `
