@@ -3,7 +3,10 @@ import graphqlHTTP from 'express-graphql'
 import path from 'path'
 import webpack from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
+import mongoose from 'mongoose'
 import schema from './server/data/schema'
+
+const db = mongoose.connection
 
 const APP_PORT = 3000
 const GRAPHQL_PORT = 4000
@@ -69,4 +72,5 @@ const app = new WebpackDevServer(compiler, {
 app.use('/', express.static(path.resolve(__dirname, 'public')))
 app.listen(APP_PORT, () => {
   console.log(`App is now running on http://localhost:${APP_PORT}`)
+  mongoose.connect('mongodb://localhost/seriesapp')
 })

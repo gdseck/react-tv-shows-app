@@ -45,6 +45,7 @@
     "history": "4.5.0",
     "html-webpack-plugin": "^2.22.0",
     "image-webpack-loader": "^3.1.0",
+    "mongoose": "4.7.4",
     "radium": "^0.18.1",
     "react-addons-test-utils": "^15.4.1",
     "react-hot-loader": "3.0.0-beta.6",

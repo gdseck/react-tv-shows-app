@@ -1,7 +1,6 @@
 import {
   GraphQLObjectType,
   GraphQLString,
-  // GraphQLInt,
   GraphQLList,
   GraphQLSchema
 } from 'graphql'
@@ -10,10 +9,8 @@ import {
   connectionArgs,
   connectionDefinitions,
   connectionFromArray,
-  // cursorForObjectInConnection,
   fromGlobalId,
   globalIdField,
-  // mutationWithClientMutationId,
   nodeDefinitions
 } from 'graphql-relay'
 
@@ -22,6 +19,9 @@ import {
   getSeriesList,
   SeriesList
 } from './database'
+
+import {findAllSeries} from './models/series-schema.js'
+import Series from './models/series-schema.js'
 
 const {nodeInterface, nodeField} = nodeDefinitions(
   (globalId) => {
@@ -40,7 +40,7 @@ const {nodeInterface, nodeField} = nodeDefinitions(
   }
 )
 
-const seriesType = new GraphQLObjectType({
+export const seriesType = new GraphQLObjectType({
   name: 'Series',
   description: 'A TV-series',
   fields: () => ({
@@ -92,6 +92,10 @@ const queryType = new GraphQLObjectType({
     seriesList: {
       type: seriesListType,
       resolve: () => getSeriesList()
+    },
+    series: {
+      type: new GraphQLList(seriesType),
+      resolve: () => Series.find({}).exec()
     }
   })
 })

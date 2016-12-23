@@ -26,6 +26,7 @@ type Query {
     id: ID!
   ): Node
   seriesList: SeriesList
+  series: [Series]
 }
 
 # A TV-series

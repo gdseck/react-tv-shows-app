@@ -7,6 +7,7 @@ import Show from './show.jsx'
 class SeriesList extends React.Component {
   constructor (props) {
     super(props)
+    console.log(props)
   }
 
   render () {
@@ -40,6 +41,12 @@ export default Relay.createContainer(SeriesList, {
             }
           }
         }
+      },
+      fragment on Series {
+        id
+        title
+        year
+        creators
       }
     `
   }
