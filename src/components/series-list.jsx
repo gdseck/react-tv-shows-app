@@ -1,12 +1,16 @@
 import React from 'react'
 import Relay from 'react-relay'
 import styled from 'styled-components'
+import {withRouter} from 'react-router'
 
 import Show from './show.jsx'
+
+const ShowWithRouter = withRouter(Show)
 
 class SeriesList extends React.Component {
   constructor (props) {
     super(props)
+    console.log(props.viewer)
   }
 
   render () {
@@ -15,7 +19,7 @@ class SeriesList extends React.Component {
       <PageContainer>
         <PageTitle>Series list</PageTitle>
         <ShowsContainer>
-          {shows.map((show, index) => <Show show={show} key={index}/>)}
+          {shows.map((show, index) => <ShowWithRouter show={show} key={index} />)}
         </ShowsContainer>
       </PageContainer>
     )

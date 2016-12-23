@@ -4,7 +4,8 @@ import {
   GraphQLID,
   GraphQLString,
   GraphQLList,
-  GraphQLSchema
+  GraphQLSchema,
+  GraphQLInt
 } from 'graphql'
 
 import {
@@ -85,6 +86,16 @@ const UserType = new GraphQLObjectType({
       args: connectionArgs,
       resolve: (_, args) => connectionFromMongooseQuery(
         Show.find({}),
+        args
+      )
+    },
+    show: {
+      type: ShowType,
+      args: Object.assign({}, connectionArgs, {
+        id: GraphQLInt
+      }),
+      resolve: (_, args) => connectionFromMongooseQuery(
+        Show.find({id: args.id}),
         args
       )
     }
