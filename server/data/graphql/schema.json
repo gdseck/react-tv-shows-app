@@ -2,14 +2,14 @@
   "data": {
     "__schema": {
       "queryType": {
-        "name": "Query"
+        "name": "Root"
       },
       "mutationType": null,
       "subscriptionType": null,
       "types": [
         {
           "kind": "OBJECT",
-          "name": "Query",
+          "name": "Root",
           "description": null,
           "fields": [
             {
@@ -40,29 +40,13 @@
               "deprecationReason": null
             },
             {
-              "name": "seriesList",
+              "name": "viewer",
               "description": null,
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "SeriesList",
+                "name": "User",
                 "ofType": null
-              },
-              "isDeprecated": false,
-              "deprecationReason": null
-            },
-            {
-              "name": "series",
-              "description": null,
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Series",
-                  "ofType": null
-                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -111,20 +95,20 @@
           "possibleTypes": [
             {
               "kind": "OBJECT",
-              "name": "SeriesList",
+              "name": "User",
               "ofType": null
             },
             {
               "kind": "OBJECT",
-              "name": "Series",
+              "name": "Show",
               "ofType": null
             }
           ]
         },
         {
           "kind": "OBJECT",
-          "name": "SeriesList",
-          "description": "List of series",
+          "name": "User",
+          "description": null,
           "fields": [
             {
               "name": "id",
@@ -143,8 +127,8 @@
               "deprecationReason": null
             },
             {
-              "name": "series",
-              "description": "List of series",
+              "name": "shows",
+              "description": null,
               "args": [
                 {
                   "name": "after",
@@ -185,21 +169,11 @@
                     "ofType": null
                   },
                   "defaultValue": null
-                },
-                {
-                  "name": "filter",
-                  "description": null,
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "String",
-                    "ofType": null
-                  },
-                  "defaultValue": null
                 }
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "SeriesConnection",
+                "name": "ShowConnection",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -239,7 +213,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "SeriesConnection",
+          "name": "ShowConnection",
           "description": "A connection to a list of items.",
           "fields": [
             {
@@ -267,7 +241,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "SeriesEdge",
+                  "name": "ShowEdge",
                   "ofType": null
                 }
               },
@@ -359,7 +333,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "SeriesEdge",
+          "name": "ShowEdge",
           "description": "An edge in a connection.",
           "fields": [
             {
@@ -368,7 +342,7 @@
               "args": [],
               "type": {
                 "kind": "OBJECT",
-                "name": "Series",
+                "name": "Show",
                 "ofType": null
               },
               "isDeprecated": false,
@@ -398,12 +372,12 @@
         },
         {
           "kind": "OBJECT",
-          "name": "Series",
-          "description": "A TV-series",
+          "name": "Show",
+          "description": "A TV-show",
           "fields": [
             {
               "name": "id",
-              "description": "The ID of an object",
+              "description": null,
               "args": [],
               "type": {
                 "kind": "NON_NULL",

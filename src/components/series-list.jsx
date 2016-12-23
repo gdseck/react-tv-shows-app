@@ -7,16 +7,15 @@ import Show from './show.jsx'
 class SeriesList extends React.Component {
   constructor (props) {
     super(props)
-    console.log(props)
   }
 
   render () {
-    const series = this.props.seriesList.series.edges.map(edge => edge.node)
+    const shows = this.props.viewer.shows.edges.map(edge => edge.node)
     return (
       <PageContainer>
         <PageTitle>Series list</PageTitle>
         <ShowsContainer>
-          {series.map((show, index) => <Show show={show} key={index}/>)}
+          {shows.map((show, index) => <Show show={show} key={index}/>)}
         </ShowsContainer>
       </PageContainer>
     )
@@ -24,14 +23,10 @@ class SeriesList extends React.Component {
 }
 
 export default Relay.createContainer(SeriesList, {
-  initialVariables: {
-    filter: ''
-  },
   fragments: {
-    seriesList: () => Relay.QL`
-      fragment on SeriesList {
-        id
-        series (first: 50, filter: $filter){
+    viewer: () => Relay.QL`
+      fragment on User {
+        shows (first: 10){
           edges {
             node {
               id
@@ -41,19 +36,13 @@ export default Relay.createContainer(SeriesList, {
             }
           }
         }
-      },
-      fragment on Series {
-        id
-        title
-        year
-        creators
       }
     `
   }
 })
 
 SeriesList.propTypes = {
-  seriesList: React.PropTypes.object
+  viewer: React.PropTypes.object
 }
 
 const PageContainer = styled.div`

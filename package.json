@@ -53,6 +53,7 @@
     "react-router-relay": "0.13.5",
     "react-transform-hmr": "1.0.4",
     "relay-local-schema": "0.5.5",
+    "relay-mongodb-connection": "2.1.0",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "1.9.0",
     "webpack-dev-server": "^1.15.0",

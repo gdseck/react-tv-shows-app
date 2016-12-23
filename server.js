@@ -4,7 +4,7 @@ import path from 'path'
 import webpack from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
 import mongoose from 'mongoose'
-import schema from './server/data/schema'
+import schema from './server/data/graphql/schema'
 
 const db = mongoose.connection
 

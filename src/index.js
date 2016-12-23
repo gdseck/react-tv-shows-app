@@ -9,7 +9,7 @@ import Home from './components/home.jsx'
 import SeriesList from './components/series-list.jsx'
 
 const queries = {
-  seriesList: () => Relay.QL`query { seriesList }`
+  viewer: () => Relay.QL`query { viewer }`
 }
 
 render(
