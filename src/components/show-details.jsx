@@ -3,20 +3,19 @@ import Relay from 'react-relay'
 
 class ShowDetails extends React.Component {
   render () {
+    const {show} = this.props.viewer
     return (
       <div>
         <h1> Show Details </h1>
-        {renderShowDetails(props)}
+
+        <ul>
+          <li key='1'>{show.title}</li>
+          <li key='2'>{show.year}</li>
+          <li key='3'>{show.creators.map((creator, index) => <div key={index}>{creator}</div>)}</li>
+        </ul>
       </div>
     )
   }
-}
-
-const renderShowDetails = (props) => {
-  if (!props.viewer) return null
-
-  console.log()
-  return <div>Data received</div>
 }
 
 export default Relay.createContainer(ShowDetails, {
@@ -25,8 +24,8 @@ export default Relay.createContainer(ShowDetails, {
   },
   fragments: {
     viewer: () => Relay.QL`
-      fragment on Viewer {
-        show(id: $showId) {
+      fragment on User {
+        show (id: $showId) {
           id
           title
           year

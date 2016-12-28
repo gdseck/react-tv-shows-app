@@ -6,8 +6,6 @@ import WebpackDevServer from 'webpack-dev-server'
 import mongoose from 'mongoose'
 import schema from './server/data/graphql/schema'
 
-const db = mongoose.connection
-
 const APP_PORT = 3000
 const GRAPHQL_PORT = 4000
 
@@ -33,9 +31,9 @@ const webpackConfig = {
   module: {
     loaders: [
       {
-        exclude: /node_modules/,
+        test: /\.jsx?$/,
         loader: 'babel',
-        test: /\.jsx?$/
+        exclude: /node_modules/
       },
       {
         test: /\.png$/,

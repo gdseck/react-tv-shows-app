@@ -11,7 +11,7 @@ export default class Show extends React.Component {
     const {show, router} = this.props
     return (
       <ShowContainer
-        onClick={() => router.push(`/series-list/${encodeURIComponent(show.id)}`)}
+        onClick={() => router.push(`/series-list/${encodeURIComponent(show._id)}`)}
       >
         <ShowDataList>
           <ShowDataListItem><b>title:</b> {show.title}</ShowDataListItem>

@@ -8,13 +8,9 @@ import Show from './show.jsx'
 const ShowWithRouter = withRouter(Show)
 
 class SeriesList extends React.Component {
-  constructor (props) {
-    super(props)
-    console.log(props.viewer)
-  }
-
   render () {
-    const shows = this.props.viewer.shows.edges.map(edge => edge.node)
+    const shows = this.props.viewer.shows ? this.props.viewer.shows.edges.map(edge => edge.node) : null
+
     return (
       <PageContainer>
         <PageTitle>Series list</PageTitle>
@@ -34,6 +30,7 @@ export default Relay.createContainer(SeriesList, {
           edges {
             node {
               id
+              _id
               title
               year
               creators

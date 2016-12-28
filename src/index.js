@@ -22,7 +22,7 @@ render(
     <Route path='/' component={App}>
       <IndexRoute component={Home} />
       <Route path='/series-list' component={SeriesList} queries={queries} />
-      <Route path='/series-list/:showId' component={ShowDetails} />
+      <Route path='/series-list/:showId' component={ShowDetails} queries={queries} />
     </Route>
   </Router>,
   document.getElementById('root')

@@ -1,11 +1,9 @@
 import {
   GraphQLObjectType,
   GraphQLNonNull,
-  GraphQLID,
   GraphQLString,
   GraphQLList,
-  GraphQLSchema,
-  GraphQLInt
+  GraphQLSchema
 } from 'graphql'
 
 import {
@@ -18,13 +16,14 @@ import {
 
 import {connectionFromMongooseQuery} from 'relay-mongodb-connection'
 
-import {getShowById, getUser, Show} from '../models/series-schema'
+import {getUser, Show, User} from '../models/series-schema'
 
 const {nodeInterface, nodeField} = nodeDefinitions(
   (globalId) => {
     const {type, id} = fromGlobalId(globalId)
+
     if (type === 'Show') {
-      return getShowById(id)
+      return Show.find({id: id})
     } else if (type === 'User') {
       return getUser(id)
     }
@@ -46,27 +45,26 @@ const {nodeInterface, nodeField} = nodeDefinitions(
 const ShowType = new GraphQLObjectType({
   name: 'Show',
   description: 'A TV-show',
-  fields: () => ({
-    id: {
-      type: new GraphQLNonNull(GraphQLID),
-      resolve: (obj) => obj.id
+  fields: {
+    id: globalIdField('Show', show => show._id),
+    _id: {
+      type: GraphQLString,
+      description: 'mongodb object id',
+      resolve: (obj) => obj._id
     },
     title: {
       type: GraphQLString,
-      description: 'Title of the series',
-      resolve: (obj) => obj.title
+      description: 'Title of the series'
     },
     year: {
       type: GraphQLString,
-      description: 'Year the series was released',
-      resolve: (obj) => obj.year
+      description: 'Year the series was released'
     },
     creators: {
       type: new GraphQLList(GraphQLString),
-      description: 'List of creators/writers of the series',
-      resolve: (obj) => obj.creators
+      description: 'List of creators/writers of the series'
     }
-  }),
+  },
   interfaces: [nodeInterface]
 })
 
@@ -84,20 +82,21 @@ const UserType = new GraphQLObjectType({
     shows: {
       type: ShowsConnection,
       args: connectionArgs,
-      resolve: (_, args) => connectionFromMongooseQuery(
-        Show.find({}),
-        args
-      )
+      resolve: (_, args) => {
+        return connectionFromMongooseQuery(
+          Show.find({}),
+          args
+        )
+      }
     },
     show: {
       type: ShowType,
-      args: Object.assign({}, connectionArgs, {
-        id: GraphQLInt
-      }),
-      resolve: (_, args) => connectionFromMongooseQuery(
-        Show.find({id: args.id}),
-        args
-      )
+      args: {
+        id: {
+          type: new GraphQLNonNull(GraphQLString)
+        }
+      },
+      resolve: (_, args) => Show.findOne({_id: args.id})
     }
   },
   interfaces: [nodeInterface]
@@ -109,7 +108,7 @@ const Root = new GraphQLObjectType({
     node: nodeField,
     viewer: {
       type: UserType,
-      resolve: () => getUser()
+      resolve: () => User.findOne({})
     }
   })
 })

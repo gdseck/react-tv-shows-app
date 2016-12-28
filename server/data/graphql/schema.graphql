@@ -34,7 +34,11 @@ type Root {
 
 # A TV-show
 type Show implements Node {
+  # The ID of an object
   id: ID!
+
+  # mongodb object id
+  _id: String
 
   # Title of the series
   title: String
@@ -68,4 +72,5 @@ type User implements Node {
   # The ID of an object
   id: ID!
   shows(after: String, first: Int, before: String, last: Int): ShowConnection
+  show(id: String!): Show
 }
