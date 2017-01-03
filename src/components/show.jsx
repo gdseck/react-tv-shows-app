@@ -4,7 +4,9 @@ import styled from 'styled-components'
 export default class Show extends React.Component {
   constructor (props) {
     super(props)
-    console.log(props)
+    this.state = {
+      imageUrl: require('public/img/notfound.png')
+    }
   }
 
   render () {
@@ -14,13 +16,21 @@ export default class Show extends React.Component {
         onClick={() => router.push(`/series-list/${encodeURIComponent(show._id)}`)}
       >
         <ShowDataList>
-          <ShowDataListItem><b>title:</b> {show.title}</ShowDataListItem>
-          <ShowDataListItem><b>year:</b> {show.year}</ShowDataListItem>
-          <ShowDataListItem><b>creators:</b> {
-            show.creators.map((creator, index) =>
-              `${creator}${index + 1 === show.creators.length ? '' : ', '}`
-            )
-          }</ShowDataListItem>
+          <div>
+            <StyledImage hasImage={show.image} src={show.imageUrl
+              ? require(`${show.imageUrl}`)
+              : this.state.imageUrl}
+            />
+          </div>
+          <ShowInfo>
+            <li><b>title:</b> {show.title}</li>
+            <li><b>year:</b> {show.year}</li>
+            <li><b>creators:</b> {
+              show.creators.map((creator, index) =>
+                `${creator}${index + 1 === show.creators.length ? '' : ', '}`
+              )
+            }</li>
+          </ShowInfo>
         </ShowDataList>
       </ShowContainer>
     )
@@ -35,12 +45,12 @@ Show.propTypes = {
 const ShowContainer = styled.div`
   display: inline-block;
   height: 12%;
-  width: 300px;
+  width: 400px;
   overflow: auto;
   border: 1px solid lightgrey;
   border-radius: 3px;
   margin: 1em;
-  padding: 1.5em;
+  padding: 1%;
   flex: 0 1 auto;
   cursor: pointer;
   &:hover {
@@ -53,8 +63,18 @@ const ShowDataList = styled.ul`
   list-style-type: none;
   padding-left: 0;
   height: 6em;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  margin: 0;
 `
 
-const ShowDataListItem = styled.li`
+const ShowInfo = styled.div`
+  height: 90%;
+  padding: 1em;
+`
 
+const StyledImage = styled.img`
+  height: ${props => props.hasImage ? 170 : 116}px;
+  width: auto;
 `

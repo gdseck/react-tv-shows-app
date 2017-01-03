@@ -36,7 +36,7 @@ const webpackConfig = {
         exclude: /node_modules/
       },
       {
-        test: /\.png$/,
+        test: /\.(png|jpg)$/,
         loader: 'url',
         include: path.join(__dirname, '/public')
       }
