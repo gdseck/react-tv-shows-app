@@ -8,8 +8,23 @@ import Show from './show.jsx'
 const ShowWithRouter = withRouter(Show)
 
 class SeriesList extends React.Component {
+  constructor (props) {
+    super(props)
+    this.loadMoreShows = this.loadMoreShows.bind(this)
+  }
+
+  loadMoreShows () {
+    const {relay} = this.props
+    relay.setVariables({number: relay.variables.number + 20})
+  }
+
   render () {
     const shows = this.props.viewer.shows ? this.props.viewer.shows.edges.map(edge => edge.node) : null
+    const renderLoadMoreButton = () => {
+      return this.props.viewer.shows.pageInfo.hasNextPage
+        ? <button onClick={this.loadMoreShows}>Load more</button>
+        : null
+    }
 
     return (
       <PageContainer>
@@ -17,16 +32,22 @@ class SeriesList extends React.Component {
         <ShowsContainer>
           {shows.map((show, index) => <ShowWithRouter show={show} key={index} />)}
         </ShowsContainer>
+        <div>
+          {renderLoadMoreButton()}
+        </div>
       </PageContainer>
     )
   }
 }
 
 export default Relay.createContainer(SeriesList, {
+  initialVariables: {
+    number: 20
+  },
   fragments: {
     viewer: () => Relay.QL`
       fragment on User {
-        shows (first: 10){
+        shows (first: $number){
           edges {
             node {
               id
@@ -34,7 +55,11 @@ export default Relay.createContainer(SeriesList, {
               title
               year
               creators
+              image
             }
+          }
+          pageInfo {
+            hasNextPage
           }
         }
       }
@@ -43,7 +68,8 @@ export default Relay.createContainer(SeriesList, {
 })
 
 SeriesList.propTypes = {
-  viewer: React.PropTypes.object
+  viewer: React.PropTypes.object,
+  relay: React.PropTypes.object
 }
 
 const PageContainer = styled.div`

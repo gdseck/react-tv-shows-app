@@ -7,7 +7,7 @@ const NavBar = () => (
     <NavWrap>
       <StyledNavBar>
         <NavLogo>
-          <StyledImage src={require('public/img/tv-icon.png')} />
+          <StyledImage src={require(`public/img/tv-icon.png`)} />
         </NavLogo>
         <StyledNavList>
           <StyledNavItem key='1'>

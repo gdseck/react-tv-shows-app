@@ -5,7 +5,17 @@ export default class Show extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      imageUrl: require('public/img/notfound.png')
+      image: null,
+      hasImage: false
+    }
+  }
+
+  componentDidMount () {
+    try {
+      const image = require(`public/img/${this.props.show.image}`)
+      this.setState({image: image, hasImage: true})
+    } catch (err) {
+      this.setState({image: require('public/img/notfound.png'), hasImage: false})
     }
   }
 
@@ -17,9 +27,9 @@ export default class Show extends React.Component {
       >
         <ShowDataList>
           <div>
-            <StyledImage hasImage={show.image} src={show.imageUrl
-              ? require(`${show.imageUrl}`)
-              : this.state.imageUrl}
+            <StyledImage
+              hasImage={this.state.hasImage}
+              src={this.state.image}
             />
           </div>
           <ShowInfo>

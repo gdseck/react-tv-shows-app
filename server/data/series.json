@@ -48,66 +48,66 @@
 {"_id":{"$oid":"585d028238b1f52c91541548"},"id":"50","title":"Fringe","year":"2008","creators":["J.J. Abrams","Alex Kurtzman","Roberto Orci"], "image": "fringe.jpg"}
 {"_id":{"$oid":"585d028238b1f52c91541549"},"id":"51","title":"Avatar: The Last Airbender","year":"2005","creators":["Michael Dante DiMartino","Bryan Konietzko"], "image": "avatar-the-last-airbender.jpg"}
 {"_id":{"$oid":"585d028238b1f52c9154154a"},"id":"52","title":"The Newsroom","year":"2012","creators":["Aaron Sorkin"], "image": "the-newsroom.jpg"}
-{"_id":{"$oid":"585d028238b1f52c9154154b"},"id":"53","title":"The Bridge","year":"2011","creators":["Hans Rosenfeldt"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154154c"},"id":"54","title":"Misfits","year":"2009","creators":["Howard Overman","Jon Brown","Mike O`Leary"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154154d"},"id":"55","title":"The Pacific","year":"2010","creators":["Bruce C. McKenna","Robert Schenkkan","Graham Yost","George Pelecanos","Larry Andries","Michelle Ashford"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154154e"},"id":"56","title":"Attack on Titan","year":"2013","creators":["Yasuko Kobayashi"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154154f"},"id":"57","title":"Louie","year":"2010","creators":["Louis C.K."], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541550"},"id":"58","title":"The Office","year":"2001","creators":["Greg Daniels"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541551"},"id":"59","title":"The Inbetweeners","year":"2008","creators":["Damon Beesley","Iain Morris"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541552"},"id":"60","title":"Being Human","year":"2008","creators":["Toby Whithouse"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541553"},"id":"61","title":"Utopia","year":"2013","creators":["Dennis Kelly","John Donnely"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541554"},"id":"62","title":"Southland","year":"2009","creators":["Ann Biderman"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541555"},"id":"63","title":"Little Britain USA","year":"2008","creators":["Ben Silverman","David Walliams","Matt Lucas","Simon Fuller"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541556"},"id":"64","title":"The Job Lot","year":"2013","creators":["Claire Downnes","Stuart Lane","Ian Jarvis"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541557"},"id":"65","title":"The Life \u0026 Times of Tim","year":"2008","creators":["Steve Dildarian"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541558"},"id":"66","title":"Ambassadors","year":"2013","creators":["James Wood","Rupert Walters"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541559"},"id":"67","title":"Uncle","year":"2012","creators":["Oliver Refson","Lilah Vandenburgh"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154155a"},"id":"68","title":"Siblings","year":"2014","creators":["Keith Akushie"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154155b"},"id":"69","title":"Rev","year":"2010","creators":["Tom Hollander","James Wood"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154155c"},"id":70,"title":"Come Fly With Me","year":"2010","creators":["Matt Lucas","David Walliams"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154155d"},"id":71,"title":"Het Eiland","year":"2004","creators":["Jan Eelen","Olivier Goris","Bart Matthys"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154155e"},"id":72,"title":"8 Out of 10 Cats","year":"2005","creators":[], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154155f"},"id":73,"title":"Summer Heights High","year":"2007","creators":["Chris Lilley"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541560"},"id":74,"title":"Garth Marenghi`s Darkplace","year":"2004","creators":["Richard Ayoade","Matthew Holness"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541561"},"id":75,"title":"Mock The Week","year":"2005","creators":["Dan Patterson","Mark Leveson"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541562"},"id":76,"title":"How Not To Live Your Life","year":"2007","creators":["Dan Clark"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541563"},"id":77,"title":"The Thin Blue Line","year":"1995","creators":["Ben Elton"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541564"},"id":78,"title":"Would I Lie To You?","year":"2007","creators":[], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541565"},"id":79,"title":"That Mitchell and Webb Look","year":"2006","creators":["David Mitchell","Robert Webb","James Bachman","Mark Evans","Jesse Armstrong","Sam Bain"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541566"},"id":80,"title":"Life On Mars","year":"2006","creators":["Matthew Graham","Tony Jordan","Ashley Pharoah"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541567"},"id":81,"title":"The Wrong Mans","year":"2013","creators":["James Corden","Matthew Baynton"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541568"},"id":82,"title":"Hello Ladies","year":"2013","creators":["Stephen Merchant","Lee Eisenberg","Gene Stupnitsky"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541569"},"id":83,"title":"Little Britain","year":"2003","creators":["David Walliams","Matt Lucas"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154156a"},"id":84,"title":"Him \u0026 Her","year":"2010","creators":["Stefan Golaszewski"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154156b"},"id":85,"title":"The League of Gentlemen","year":"1999","creators":["Jeremy Dyson","Mark Gatiss","Steve Pemberton","Reece Shearsmith"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154156c"},"id":86,"title":"Life`s Too Short","year":"2011","creators":["Warwick Davis","Ricky Gervais","Stephen Merchant"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154156d"},"id":87,"title":"Greek","year":"2007","creators":["Patrick Sean Smith"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154156e"},"id":88,"title":"QI","year":"2003","creators":["John Lloyd"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154156f"},"id":89,"title":"Spaced","year":"1999","creators":["Simon Pegg","Jessica Stevenson","Edgar Wright"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541570"},"id":90,"title":"Charlie Brooker`s Weekly Wipe","year":"2013","creators":["Charlie Brooker"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541571"},"id":91,"title":"Not Going Out","year":"2006","creators":["Lee Mack","Andrew Collins","Daniel Peak"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541572"},"id":92,"title":"Derek","year":"2012","creators":["Ricky Gervais"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541573"},"id":93,"title":"In de Gloria","year":"2000","creators":["Jan Eelen"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541574"},"id":94,"title":"How TV Ruined Your Life","year":"2011","creators":["Charlie Brooker"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541575"},"id":95,"title":"Newswipe","year":"2009","creators":["Charlie Brooker"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541576"},"id":96,"title":"Het Geslacht De Pauw","year":"2004","creators":["Bart De Pauw"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541577"},"id":97,"title":"Worst Week of My Life","year":"2006","creators":["Mark Bussell","Justin Sbresni"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541578"},"id":98,"title":"The Walking Dead","year":"2010","creators":["Frank Darabont"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541579"},"id":99,"title":"Shameless","year":"2011","creators":["Paul Abbot","John Wells"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154157a"},"id":100,"title":"Modern Family","year":"2009","creators":["Christopher Lloyd","Steven Levitan"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154157b"},"id":101,"title":"The Office US","year":"2005","creators":["Greg Daniels"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154157c"},"id":102,"title":"South Park","year":"1997","creators":["Trey Parker","Matt Stone"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154157d"},"id":103,"title":"Dexter","year":"2006","creators":["James Manos"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154157e"},"id":104,"title":"Downton Abbey","year":"2010","creators":["Julian Fellowes","Shelagh Stephenson","Tina Pepler"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c9154157f"},"id":105,"title":"True Detective","year":"2014","creators":["Nic Pizzolato"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541580"},"id":106,"title":"Parks and Recreation","year":"2009","creators":["Greg Daniels","Michael Schur"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541581"},"id":107,"title":"The Night Of","year":"2016","creators":["Richard Price","Steven Zaillian"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541582"},"id":108,"title":"Better Call Saul","year":"2015","creators":["Vince Gilligan","Peter Gould"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541583"},"id":109,"title":"Archer","year":"2009","creators":["Adam Reed"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541584"},"id":110,"title":"Hannibal","year":"2013","creators":["Bryan Fuller"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541585"},"id":111,"title":"Atlanta","year":"2016","creators":["Donald Glover"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541586"},"id":112,"title":"Freaks and Geeks","year":"1999","creators":["Paul Feig"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541587"},"id":113,"title":"Community","year":"2009","creators":["Dan Harmon"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541588"},"id":114,"title":"The Killing","year":"2011","creators":["Veena Sud"], "image": ""}
-{"_id":{"$oid":"585d028238b1f52c91541589"},"id":115,"title":"Banshee","year":"2013","creators":["Jonathan Tropper","David Schickler"], "image": ""}
+{"_id":{"$oid":"585d028238b1f52c9154154b"},"id":"53","title":"The Bridge","year":"2011","creators":["Hans Rosenfeldt"], "image": "the-bridge.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154154c"},"id":"54","title":"Misfits","year":"2009","creators":["Howard Overman","Jon Brown","Mike O`Leary"], "image": "misfits.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154154d"},"id":"55","title":"The Pacific","year":"2010","creators":["Bruce C. McKenna","Robert Schenkkan","Graham Yost","George Pelecanos","Larry Andries","Michelle Ashford"], "image": "the-pacific.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154154e"},"id":"56","title":"Attack on Titan","year":"2013","creators":["Yasuko Kobayashi"], "image": "attack-on-titan.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154154f"},"id":"57","title":"Louie","year":"2010","creators":["Louis C.K."], "image": "louie.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541550"},"id":"58","title":"The Office","year":"2001","creators":["Greg Daniels"], "image": "the-office.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541551"},"id":"59","title":"The Inbetweeners","year":"2008","creators":["Damon Beesley","Iain Morris"], "image": "the-inbetweeners.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541552"},"id":"60","title":"Being Human","year":"2008","creators":["Toby Whithouse"], "image": "being-human.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541553"},"id":"61","title":"Utopia","year":"2013","creators":["Dennis Kelly","John Donnely"], "image": "utopia.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541554"},"id":"62","title":"Southland","year":"2009","creators":["Ann Biderman"], "image": "southland.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541555"},"id":"63","title":"Little Britain USA","year":"2008","creators":["Ben Silverman","David Walliams","Matt Lucas","Simon Fuller"], "image": "little-britain-usa.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541556"},"id":"64","title":"The Job Lot","year":"2013","creators":["Claire Downnes","Stuart Lane","Ian Jarvis"], "image": "the-job-lot.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541557"},"id":"65","title":"The Life \u0026 Times of Tim","year":"2008","creators":["Steve Dildarian"], "image": "the-life-and-times-of-tim.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541558"},"id":"66","title":"Ambassadors","year":"2013","creators":["James Wood","Rupert Walters"], "image": "ambassadors.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541559"},"id":"67","title":"Uncle","year":"2012","creators":["Oliver Refson","Lilah Vandenburgh"], "image": "uncle.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154155a"},"id":"68","title":"Siblings","year":"2014","creators":["Keith Akushie"], "image": "siblings.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154155b"},"id":"69","title":"Rev","year":"2010","creators":["Tom Hollander","James Wood"], "image": "rev.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154155c"},"id":"70","title":"Come Fly With Me","year":"2010","creators":["Matt Lucas","David Walliams"], "image": "come-fly-with-me.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154155d"},"id":"71","title":"Het Eiland","year":"2004","creators":["Jan Eelen","Olivier Goris","Bart Matthys"], "image": "het-eiland.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154155e"},"id":"72","title":"8 Out of 10 Cats","year":"2005","creators":[], "image": "8-out-of-10-cats.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154155f"},"id":"73","title":"Summer Heights High","year":"2007","creators":["Chris Lilley"], "image": "summer-heights-high.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541560"},"id":"74","title":"Garth Marenghi`s Darkplace","year":"2004","creators":["Richard Ayoade","Matthew Holness"], "image": "garth-marenghis-darkplace.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541561"},"id":"75","title":"Mock The Week","year":"2005","creators":["Dan Patterson","Mark Leveson"], "image": "mock-the-week.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541562"},"id":"76","title":"How Not To Live Your Life","year":"2007","creators":["Dan Clark"], "image": "how-not-to-live-your-life.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541563"},"id":"77","title":"The Thin Blue Line","year":"1995","creators":["Ben Elton"], "image": "the-thin-blue-line.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541564"},"id":"78","title":"Would I Lie To You?","year":"2007","creators":[], "image": "would-i-lie-to-you.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541565"},"id":"79","title":"That Mitchell and Webb Look","year":"2006","creators":["David Mitchell","Robert Webb","James Bachman","Mark Evans","Jesse Armstrong","Sam Bain"], "image": "that-mitchell-and-webb-look.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541566"},"id":"80","title":"Life On Mars","year":"2006","creators":["Matthew Graham","Tony Jordan","Ashley Pharoah"], "image": "life-on-mars.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541567"},"id":"81","title":"The Wrong Mans","year":"2013","creators":["James Corden","Matthew Baynton"], "image": "the-wrong-mans.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541568"},"id":"82","title":"Hello Ladies","year":"2013","creators":["Stephen Merchant","Lee Eisenberg","Gene Stupnitsky"], "image": "hello-ladies.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541569"},"id":"83","title":"Little Britain","year":"2003","creators":["David Walliams","Matt Lucas"], "image": "little-britain.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154156a"},"id":"84","title":"Him \u0026 Her","year":"2010","creators":["Stefan Golaszewski"], "image": "him-and-her.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154156b"},"id":"85","title":"The League of Gentlemen","year":"1999","creators":["Jeremy Dyson","Mark Gatiss","Steve Pemberton","Reece Shearsmith"], "image": "the-league-of-gentlemen.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154156c"},"id":"86","title":"Life`s Too Short","year":"2011","creators":["Warwick Davis","Ricky Gervais","Stephen Merchant"], "image": "lifes-too-short.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154156d"},"id":"87","title":"Greek","year":"2007","creators":["Patrick Sean Smith"], "image": "greek.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154156e"},"id":"88","title":"QI","year":"2003","creators":["John Lloyd"], "image": "qi.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154156f"},"id":"89","title":"Spaced","year":"1999","creators":["Simon Pegg","Jessica Stevenson","Edgar Wright"], "image": "spaced.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541570"},"id":"90","title":"Charlie Brooker`s Weekly Wipe","year":"2013","creators":["Charlie Brooker"], "image": "charlie-brookers-weekly-wipe.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541571"},"id":"91","title":"Not Going Out","year":"2006","creators":["Lee Mack","Andrew Collins","Daniel Peak"], "image": "not-going-out.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541572"},"id":"92","title":"Derek","year":"2012","creators":["Ricky Gervais"], "image": "derek.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541573"},"id":"93","title":"In de Gloria","year":"2000","creators":["Jan Eelen"], "image": "in-de-gloria.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541574"},"id":"94","title":"How TV Ruined Your Life","year":"2011","creators":["Charlie Brooker"], "image": "how-tv-ruined-your-life.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541575"},"id":"95","title":"Newswipe","year":"2009","creators":["Charlie Brooker"], "image": "newswipe.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541576"},"id":"96","title":"Het Geslacht De Pauw","year":"2004","creators":["Bart De Pauw"], "image": "het-geslacht-de-pauw.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541577"},"id":"97","title":"Worst Week of My Life","year":"2006","creators":["Mark Bussell","Justin Sbresni"], "image": "the-worst-week-of-my-life.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541578"},"id":"98","title":"The Walking Dead","year":"2010","creators":["Frank Darabont"], "image": "the-walking-dead.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541579"},"id":"99","title":"Shameless","year":"2011","creators":["Paul Abbot","John Wells"], "image": "shameless.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154157a"},"id":"100","title":"Modern Family","year":"2009","creators":["Christopher Lloyd","Steven Levitan"], "image": "modern-family.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154157b"},"id":"101","title":"The Office US","year":"2005","creators":["Greg Daniels"], "image": "the-office-us.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154157c"},"id":"102","title":"South Park","year":"1997","creators":["Trey Parker","Matt Stone"], "image": "south-park.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154157d"},"id":"103","title":"Dexter","year":"2006","creators":["James Manos"], "image": "dexter.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154157e"},"id":"104","title":"Downton Abbey","year":"2010","creators":["Julian Fellowes","Shelagh Stephenson","Tina Pepler"], "image": "downton-abbey.jpg"}
+{"_id":{"$oid":"585d028238b1f52c9154157f"},"id":"105","title":"True Detective","year":"2014","creators":["Nic Pizzolato"], "image": "true-detective.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541580"},"id":"106","title":"Parks and Recreation","year":"2009","creators":["Greg Daniels","Michael Schur"], "image": "parks-and-recreation.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541581"},"id":"107","title":"The Night Of","year":"2016","creators":["Richard Price","Steven Zaillian"], "image": "the-night-of.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541582"},"id":"108","title":"Better Call Saul","year":"2015","creators":["Vince Gilligan","Peter Gould"], "image": "better-call-saul.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541583"},"id":"109","title":"Archer","year":"2009","creators":["Adam Reed"], "image": "archer.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541584"},"id":"110","title":"Hannibal","year":"2013","creators":["Bryan Fuller"], "image": "hannibal.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541585"},"id":"111","title":"Atlanta","year":"2016","creators":["Donald Glover"], "image": "atlanta.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541586"},"id":"112","title":"Freaks and Geeks","year":"1999","creators":["Paul Feig"], "image": "freaks-and-geeks.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541587"},"id":"113","title":"Community","year":"2009","creators":["Dan Harmon"], "image": "community.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541588"},"id":"114","title":"The Killing","year":"2011","creators":["Veena Sud"], "image": "the-killing.jpg"}
+{"_id":{"$oid":"585d028238b1f52c91541589"},"id":"115","title":"Banshee","year":"2013","creators":["Jonathan Tropper","David Schickler"], "image": "banshee.jpg"}

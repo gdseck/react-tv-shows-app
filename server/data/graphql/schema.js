@@ -22,22 +22,30 @@ const {nodeInterface, nodeField} = nodeDefinitions(
   (globalId) => {
     const {type, id} = fromGlobalId(globalId)
 
+    console.log('TYPE', type)
+    console.log('ID', id)
     if (type === 'Show') {
       return Show.find({id: id})
     } else if (type === 'User') {
-      return getUser(id)
+      console.log('TYPE USER', User.findOne({}))
+      return User.findOne({})
     }
+    console.log('before return null')
     return null
   },
   (obj) => {
+    console.log('OBJ', obj)
     if (obj.title) {
+      console.log('Is ShowType')
       return ShowType
     }
 
-    if (obj.shows) {
+    if (obj.name) {
+      console.log('IS USERTYPE')
       return UserType
     }
 
+    console.log('before return null')
     return null
   }
 )
@@ -63,6 +71,10 @@ const ShowType = new GraphQLObjectType({
     creators: {
       type: new GraphQLList(GraphQLString),
       description: 'List of creators/writers of the series'
+    },
+    image: {
+      type: GraphQLString,
+      description: 'Show poster'
     }
   },
   interfaces: [nodeInterface]

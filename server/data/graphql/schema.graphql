@@ -48,6 +48,9 @@ type Show implements Node {
 
   # List of creators/writers of the series
   creators: [String]
+
+  # Show poster
+  image: String
 }
 
 # A connection to a list of items.

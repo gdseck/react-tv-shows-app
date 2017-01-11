@@ -37,15 +37,15 @@ const webpackConfig = {
       },
       {
         test: /\.(png|jpg)$/,
-        loader: 'url',
-        include: path.join(__dirname, '/public')
+        loader: 'file-loader?publicPath=src/'
+        // include: path.join(__dirname, '/public')
       }
     ]
   },
   output: {
     filename: 'index.js',
     path: '/',
-    publicPath: '/'
+    publicPath: '/src/'
   },
   resolve: {
     root: [__dirname],
