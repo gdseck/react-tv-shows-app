@@ -15,7 +15,9 @@ class ShowDetails extends React.Component {
 
   componentDidMount () {
     try {
-      const image = require(`public/img/${this.props.viewer.show.image}`)
+      console.log('image', this.props.viewer.show.image)
+      const image = require(`file!public/img/${this.props.viewer.show.image}`)
+      console.log(image)
       this.setState({
         image: image,
         hasImage: true
@@ -59,6 +61,7 @@ export default Relay.createContainer(ShowDetails, {
       fragment on User {
         show (id: $showId) {
           id
+          _id
           title
           year
           creators

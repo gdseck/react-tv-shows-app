@@ -12,6 +12,7 @@ class SeriesList extends React.Component {
     super(props)
     this.loadMoreShows = this.loadMoreShows.bind(this)
     this.onChangeFilter = debounce(this.onChangeFilter.bind(this), 300)
+    console.log('-- list', this.props.viewer)
   }
 
   loadMoreShows () {

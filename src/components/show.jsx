@@ -43,7 +43,7 @@ export default class Show extends React.Component {
             />
           </div>
           <ShowInfo>
-            <h2>{show.title}</h2>
+            <h2 style={{marginTop: 0}}>{show.title}</h2>
             <li><b>year:</b> {show.year}</li>
             <li><b>creators:</b> {
               show.creators.map((creator, index) =>

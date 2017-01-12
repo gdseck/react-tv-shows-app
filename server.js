@@ -37,7 +37,7 @@ const webpackConfig = {
       },
       {
         test: /\.(png|jpg)$/,
-        loader: 'file-loader?publicPath=src/'
+        loader: 'file-loader?publicPath=/src/'
         // include: path.join(__dirname, '/public')
       }
     ]

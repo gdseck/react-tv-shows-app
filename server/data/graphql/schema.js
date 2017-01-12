@@ -70,7 +70,8 @@ const ShowType = new GraphQLObjectType({
     },
     image: {
       type: GraphQLString,
-      description: 'Show poster'
+      description: 'Show poster',
+      resolve: (obj) => { console.log(obj.image); return 'fawlty-towers.jpg' }
     }
   },
   interfaces: [nodeInterface]
@@ -119,7 +120,11 @@ const UserType = new GraphQLObjectType({
           type: new GraphQLNonNull(GraphQLString)
         }
       },
-      resolve: (_, args) => Show.findOne({_id: args.id})
+      resolve: (_, args) => {return Show.findOne({_id: args.id}).then(item => {
+        console.log(item)
+        console.log(item.image)
+        return item
+      })}
     }
   },
   interfaces: [nodeInterface]
