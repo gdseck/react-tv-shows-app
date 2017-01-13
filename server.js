@@ -4,6 +4,7 @@ import path from 'path'
 import webpack from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
 import mongoose from 'mongoose'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import schema from './server/data/graphql/schema'
 
 const APP_PORT = 3000
@@ -37,15 +38,27 @@ const webpackConfig = {
       },
       {
         test: /\.(png|jpg)$/,
-        loader: 'file-loader?publicPath=/src/'
+        loader: 'file-loader?publicPath=/assets/'
         // include: path.join(__dirname, '/public')
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader?limit=10000&minetype=application/font-woff'
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader'
       }
     ]
   },
   output: {
     filename: 'index.js',
-    path: '/',
-    publicPath: '/src/'
+    path: '/assets/',
+    publicPath: '/assets/'
   },
   resolve: {
     root: [__dirname],
@@ -53,7 +66,8 @@ const webpackConfig = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new ExtractTextPlugin('bundle.css')
   ]
 }
 
@@ -62,7 +76,7 @@ const compiler = webpack(webpackConfig)
 const app = new WebpackDevServer(compiler, {
   contentBase: '/public',
   proxy: {'/graphql': `http://localhost:${GRAPHQL_PORT}`},
-  publicPath: '/src',
+  publicPath: '/assets',
   historyApiFallback: true,
   stats: {colors: true, chunks: false}
 })

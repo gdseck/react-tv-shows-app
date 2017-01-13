@@ -44,8 +44,7 @@ export default class Show extends React.Component {
             />
           </div>
           <ShowInfo>
-            <h3 style={{margin: 0}}>{show.title}</h3>
-            <li><b>year:</b> {show.year}</li>
+            <h3 style={{margin: 0, fontSize: '1.1vw'}}>{show.title}</h3>
             <Rating />
           </ShowInfo>
         </ShowDataList>
@@ -67,7 +66,7 @@ Show.propTypes = {
 const ShowContainer = styled.div`
   display: inline-block;
   height: 12%;
-  width: 14rem;
+  width: 8rem;
   overflow: hidden;
   border: 1px solid lightgrey;
   border-radius: 3px;
@@ -85,7 +84,7 @@ const ShowDataList = styled.ul`
   padding-left: 0;
   height: 6em;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   height: 100%;
   margin: 0;
 `
@@ -97,6 +96,6 @@ const ShowInfo = styled.div`
 `
 
 export const StyledImage = styled.img`
-  height: ${props => props.hasImage ? 90 : 60}px;
+  height: ${props => props.hasImage ? 180 : 150}px;
   width: auto;
 `
