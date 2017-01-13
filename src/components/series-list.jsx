@@ -44,8 +44,7 @@ class SeriesList extends React.Component {
       <PageContainer>
         <PageTitle>Series list</PageTitle>
         <div>
-          <span>Search: </span>
-          <input type='text' placeholder='...' onChange={(e) => this.onChangeFilter(e.target.value)} />
+          <SearchField type='text' placeholder='Search title, year, creator...' onChange={(e) => this.onChangeFilter(e.target.value)} />
         </div>
         <ShowsContainer>
           {shows.map((show, index) => <ShowWithRouter show={show} key={show.id} />)}
@@ -102,6 +101,27 @@ const PageContainer = styled.div`
   flex: 1 1 auto;
   max-width: 80%;
   background: white;
+`
+
+const SearchField = styled.input`
+  display: block;
+  width: 100%;
+  line-height: 2rem;
+  font-size: 2rem;
+  margin: 0;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  transition: border 0.3s;
+
+  &:focus {
+    border: none;
+    outline: none;
+    border-bottom: solid 2px #969696;
+  }
 `
 
 const PageTitle = styled.h1`
