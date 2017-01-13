@@ -3,7 +3,9 @@ import {
   GraphQLNonNull,
   GraphQLString,
   GraphQLList,
-  GraphQLSchema
+  GraphQLSchema,
+  GraphQLID,
+  GraphQLInt
 } from 'graphql'
 
 import {
@@ -11,7 +13,9 @@ import {
   fromGlobalId,
   nodeDefinitions,
   connectionDefinitions,
-  connectionArgs
+  connectionArgs,
+  mutationWithClientMutationId,
+  cursorForObjectInConnection
 } from 'graphql-relay'
 
 import {connectionFromMongooseQuery} from 'relay-mongodb-connection'
@@ -78,7 +82,8 @@ const ShowType = new GraphQLObjectType({
 })
 
 const {
-  connectionType: ShowsConnection
+  connectionType: ShowsConnection,
+  edgeType: ShowEdge
 } = connectionDefinitions({
   name: 'Show',
   nodeType: ShowType
@@ -132,7 +137,54 @@ const UserType = new GraphQLObjectType({
   interfaces: [nodeInterface]
 })
 
-const Root = new GraphQLObjectType({
+const UpdateRatingMutation = mutationWithClientMutationId({
+  name: 'UpdateRating',
+  inputFields: {
+    viewerId: {
+      type: new GraphQLNonNull(GraphQLID)
+    },
+    showId: {
+      type: GraphQLString
+    },
+    rating: {
+      type: GraphQLInt
+    }
+  },
+
+  outputFields: {
+    showEdge: {
+      type: ShowEdge,
+      resolve: ({showId}) => {
+        console.log(showId)
+        const show = Show.findOne({_id: showId}).then(show => show)
+        console.log(show)
+        return {
+          cursor: cursorForObjectInConnection(Show.find({}), show),
+          node: show
+        }
+      }
+    },
+    viewer: {
+      type: UserType,
+      resolve: () => viewer
+    }
+  },
+
+  mutateAndGetPayload: ({showId, rating}) => {
+    console.log(showId, rating)
+    Show.update(
+      {_id: showId},
+      {$set: {rating: rating}},
+      {upsert: true}
+    ).then(show => {
+      console.log(show)
+    })
+    Show.find({_id: showId}).then(item => console.log(item))
+    return {showId}
+  }
+})
+
+const RootQuery = new GraphQLObjectType({
   name: 'Root',
   fields: () => ({
     node: nodeField,
@@ -143,8 +195,16 @@ const Root = new GraphQLObjectType({
   })
 })
 
+const RootMutation = new GraphQLObjectType({
+  name: 'RootMutation',
+  fields: () => ({
+    updateRating: UpdateRatingMutation
+  })
+})
+
 const schema = new GraphQLSchema({
-  query: Root
+  query: RootQuery,
+  mutation: RootMutation
 })
 
 export default schema

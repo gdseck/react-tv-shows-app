@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+
 import Rating from './rating'
 
 export default class Show extends React.Component {
@@ -26,9 +27,6 @@ export default class Show extends React.Component {
     }
   }
 
-  componentWillUnmount () {
-    console.log('unmounted')
-  }
 
   render () {
     const {show, router} = this.props
@@ -45,7 +43,7 @@ export default class Show extends React.Component {
           </div>
           <ShowInfo>
             <h3 style={{margin: 0, fontSize: '1.1vw'}}>{show.title}</h3>
-            <Rating />
+            <Rating handleRatingClick={(e, rating) => this.props.handleRatingClick(e, rating, show._id)} />
           </ShowInfo>
         </ShowDataList>
       </ShowContainer>
@@ -66,7 +64,7 @@ Show.propTypes = {
 const ShowContainer = styled.div`
   display: inline-block;
   height: 12%;
-  width: 8rem;
+  width: 9rem;
   overflow: hidden;
   // border: 1px solid lightgrey;
   border-radius: 3px;

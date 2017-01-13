@@ -8,7 +8,13 @@ export default class Rating extends React.Component {
       <div>
         {
           [1, 2, 3, 4, 5].map(score => (
-            <Star key={score} value={score}><Icon name='star' /></Star>
+            <Star
+              key={score}
+              value={score}
+              onClick={(e) => this.props.handleRatingClick(e, score)}
+            >
+              <Icon name='star' />
+            </Star>
           ))
         }
       </div>

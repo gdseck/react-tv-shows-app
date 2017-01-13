@@ -13,7 +13,8 @@ const SeriesSchema = new mongoose.Schema({
   title: String,
   year: String,
   creators: [String],
-  image: String
+  image: String,
+  rating: Number
 })
 
 const UserSchema = new mongoose.Schema({

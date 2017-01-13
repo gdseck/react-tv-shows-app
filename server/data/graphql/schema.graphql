@@ -1,5 +1,6 @@
 schema {
   query: Root
+  mutation: RootMutation
 }
 
 # An object with an ID
@@ -30,6 +31,10 @@ type Root {
     id: ID!
   ): Node
   viewer: User
+}
+
+type RootMutation {
+  updateRating(input: UpdateRatingInput!): UpdateRatingPayload
 }
 
 # A TV-show
@@ -69,6 +74,19 @@ type ShowEdge {
 
   # A cursor for use in pagination
   cursor: String!
+}
+
+input UpdateRatingInput {
+  viewerId: ID!
+  showId: String
+  rating: Int
+  clientMutationId: String
+}
+
+type UpdateRatingPayload {
+  showEdge: ShowEdge
+  viewer: User
+  clientMutationId: String
 }
 
 type User implements Node {

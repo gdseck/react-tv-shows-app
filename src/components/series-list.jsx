@@ -2,6 +2,7 @@ import React from 'react'
 import Relay from 'react-relay'
 import styled from 'styled-components'
 import {withRouter} from 'react-router'
+import UpdateRatingMutation from 'src/mutations/update-rating'
 
 import Show from './show.jsx'
 
@@ -12,12 +13,29 @@ class SeriesList extends React.Component {
     super(props)
     this.loadMoreShows = this.loadMoreShows.bind(this)
     this.onChangeFilter = debounce(this.onChangeFilter.bind(this), 300)
-    console.log('-- list', this.props.viewer)
+    this.handleRatingClick = this.handleRatingClick.bind(this)
   }
 
   loadMoreShows () {
     const {relay} = this.props
     relay.setVariables({number: relay.variables.number + 20})
+  }
+
+  handleRatingClick (e, rating, showId) {
+    e.stopPropagation()
+
+    const {relay, viewer} = this.props
+    console.log(viewer)
+    const mutation = new UpdateRatingMutation({
+      viewer,
+      showId,
+      rating
+    })
+
+    relay.commitUpdate(mutation, {
+      onSuccess: (transaction) => console.log('mutation success', transaction),
+      onFailure: (transaction) => console.log('mutation failed', transaction.getError())
+    })
   }
 
   onChangeFilter (value) {
@@ -46,7 +64,7 @@ class SeriesList extends React.Component {
           <SearchField type='text' placeholder='Search title, year, creator...' onChange={(e) => this.onChangeFilter(e.target.value)} />
         </div>
         <ShowsContainer>
-          {shows.map((show, index) => <ShowWithRouter show={show} key={show.id} />)}
+          {shows.map((show, index) => <ShowWithRouter show={show} key={show.id} handleRatingClick={this.handleRatingClick} />)}
         </ShowsContainer>
         <div>
           {renderLoadMoreButton()}
