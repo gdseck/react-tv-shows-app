@@ -68,7 +68,7 @@ const ShowContainer = styled.div`
   height: 12%;
   width: 8rem;
   overflow: hidden;
-  border: 1px solid lightgrey;
+  // border: 1px solid lightgrey;
   border-radius: 3px;
   margin: 0.2em;
   padding: 1%;
@@ -91,11 +91,10 @@ const ShowDataList = styled.ul`
 
 const ShowInfo = styled.div`
   height: 90%;
-  padding: 1em;
-  padding-top: 0;
+  padding: 0;
 `
 
 export const StyledImage = styled.img`
   height: ${props => props.hasImage ? 180 : 150}px;
-  width: auto;
+  width: 100%;
 `
