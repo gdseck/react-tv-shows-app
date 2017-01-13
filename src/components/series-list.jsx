@@ -42,7 +42,6 @@ class SeriesList extends React.Component {
 
     return (
       <PageContainer>
-        <PageTitle>Series list</PageTitle>
         <div>
           <SearchField type='text' placeholder='Search title, year, creator...' onChange={(e) => this.onChangeFilter(e.target.value)} />
         </div>
@@ -100,7 +99,9 @@ const PageContainer = styled.div`
   padding: 2em;
   flex: 1 1 auto;
   max-width: 80%;
-  background: white;
+  background: #d0d0d0;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 `
 
 const SearchField = styled.input`
@@ -138,7 +139,7 @@ const ShowsContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   align-content: space-between;
 `

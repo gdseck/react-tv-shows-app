@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const NavBar = () => (
   <NavFixed>
     <NavWrap>
-      <StyledNavBar>
+      {/* <StyledNavBar> */}
         <NavLogo>
           <StyledImage src={require(`public/img/tv-icon.png`)} />
         </NavLogo>
@@ -21,7 +21,7 @@ const NavBar = () => (
             </StyledLink>
           </StyledNavItem>
         </StyledNavList>
-      </StyledNavBar>
+      {/* </StyledNavBar> */}
     </NavWrap>
   </NavFixed>
 )
@@ -40,6 +40,7 @@ const NavWrap = styled.div`
   text-align: left;
   margin: 0 auto;
   width: 95%;
+  height: 100%;
   position: relative;
 `
 
@@ -62,14 +63,14 @@ const StyledLink = styled(Link)`
   }
 `
 
-const StyledNavBar = styled.div`
-  background: black;
-  display: block;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  height: 53px;
-`
+// const StyledNavBar = styled.div`
+//   background: black;
+//   display: block;
+//   width: 100%;
+//   position: fixed;
+//   top: 0;
+//   height: 53px;
+// `
 
 const StyledImage = styled.img`
   display: block;

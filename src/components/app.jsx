@@ -26,6 +26,6 @@ const StyledApp = styled.div`
   width: 100%;
   bottom: 0;
   position: relative;
-  font-family: Noto Sans;
+  font-family: Verdana, sans-serif;
   background: beige;
 `
