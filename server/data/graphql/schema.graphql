@@ -56,6 +56,9 @@ type Show implements Node {
 
   # Show poster
   image: String
+
+  # Show rating
+  rating: Int
 }
 
 # A connection to a list of items.
@@ -84,6 +87,7 @@ input UpdateRatingInput {
 }
 
 type UpdateRatingPayload {
+  shows: ShowConnection
   showEdge: ShowEdge
   viewer: User
   clientMutationId: String

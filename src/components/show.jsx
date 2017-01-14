@@ -10,6 +10,7 @@ export default class Show extends React.Component {
       image: null,
       hasImage: false
     }
+    this.handleRatingClick = this.handleRatingClick.bind(this)
   }
 
   componentDidMount () {
@@ -27,6 +28,10 @@ export default class Show extends React.Component {
     }
   }
 
+  handleRatingClick (e, rating) {
+    const {handleRatingClick, show} = this.props
+    handleRatingClick(e, rating, show._id)
+  }
 
   render () {
     const {show, router} = this.props
@@ -42,24 +47,27 @@ export default class Show extends React.Component {
             />
           </div>
           <ShowInfo>
-            <h3 style={{margin: 0, fontSize: '1.1vw'}}>{show.title}</h3>
-            <Rating handleRatingClick={(e, rating) => this.props.handleRatingClick(e, rating, show._id)} />
+            <Title>{show.title}</Title>
+            <Rating
+              handleRatingClick={this.handleRatingClick}
+              show={show}
+            />
           </ShowInfo>
         </ShowDataList>
       </ShowContainer>
     )
   }
 }
-            // <li><b>creators:</b> {
-            //   show.creators.map((creator, index) =>
-            //     `${creator}${index + 1 === show.creators.length ? '' : ', '}`
-            //   )
-            // }</li>
 
 Show.propTypes = {
   show: React.PropTypes.object,
   router: React.PropTypes.object
 }
+
+const Title = styled.h3`
+  text-align: center;
+  font-size: 1.1vw;
+`
 
 const ShowContainer = styled.div`
   display: inline-block;

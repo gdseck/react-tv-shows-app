@@ -91,12 +91,14 @@ export default Relay.createContainer(SeriesList, {
               year
               creators
               image
+              rating
             }
           }
           pageInfo {
             hasNextPage
           }
         }
+        ${UpdateRatingMutation.getFragment('viewer')}
       }
     `
   }
@@ -135,6 +137,7 @@ const SearchField = styled.input`
   border: none;
   border-bottom: solid 2px #c9c9c9;
   transition: border 0.3s;
+  margin-bottom: 1rem;
 
   &:focus {
     border: none;

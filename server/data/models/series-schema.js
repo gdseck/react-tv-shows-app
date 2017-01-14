@@ -31,37 +31,29 @@ const UserSchema = new mongoose.Schema({
 export const Show = mongoose.model('Show', SeriesSchema)
 export const User = mongoose.model('User', UserSchema)
 
-export const getListOfShows = () => {
-  return new Promise((resolve, reject) => {
-    Show.find({}).exec((err, res) => {
-      err ? reject(err) : resolve(res)
-    })
-  })
+export const shows = () => {
+  return Show.find({})
 }
 
-export const getShowById = (id) => {
-  return new Promise((resolve, reject) => {
-    Show.findOne({}).exec((err, res) => {
-      err ? reject(err) : resolve(res)
-    })
-  })
+export const showById = (id) => {
+  // Show.find({_id: id}).then(show => {console.log('show', show)})
+  return Show.find({_id: id})
 }
 
-export const getUser = () => {
-  return new Promise((resolve, reject) => {
-    User.findOne({}).exec((err, res) => {
-      err ? reject(err) : resolve(res)
-    })
-  })
-}
-
-export const findFilteredSeries = (filter) => {
+export const filteredShows = (filter) => {
   const re = new RegExp(filter, 'i')
-  return new Promise((resolve, reject) => {
-    Show.find({ $or: [
-      { title: re },
-      { year: re },
-      { creators: { $in: [re] } }
-    ]})
-  })
+  return Show.find({ $or: [
+    { title: re },
+    { year: re },
+    { creators: { $in: [re] } }
+  ]})
+}
+
+export const updateShowRating = (id, rating) => {
+  console.log()
+  return Show.update(
+    {_id: id},
+    {$set: {rating: rating}},
+    {upsert: true}
+  ).then(update => console.log(update))
 }

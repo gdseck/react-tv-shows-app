@@ -15,7 +15,6 @@ class ShowDetails extends React.Component {
 
   componentDidMount () {
     try {
-      console.log('image', this.props.viewer.show.image)
       const image = require(`public/img/${this.props.viewer.show.image}`)
       console.log(image)
       this.setState({

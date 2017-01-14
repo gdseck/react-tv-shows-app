@@ -20,7 +20,14 @@ import {
 
 import {connectionFromMongooseQuery} from 'relay-mongodb-connection'
 
-import {Show, User} from '../models/series-schema'
+import {
+  Show,
+  shows,
+  filteredShows,
+  showById,
+  updateShowRating,
+  User
+} from '../models/series-schema'
 
 class Viewer {}
 const viewer = new Viewer()
@@ -76,6 +83,10 @@ const ShowType = new GraphQLObjectType({
       type: GraphQLString,
       description: 'Show poster',
       resolve: (obj) => obj.image
+    },
+    rating: {
+      type: GraphQLInt,
+      description: 'Show rating'
     }
   },
   interfaces: [nodeInterface]
@@ -102,18 +113,13 @@ const UserType = new GraphQLObjectType({
       }),
       resolve: (_, args) => {
         if (args.filter) {
-          const re = new RegExp(args.filter, 'i')
           return connectionFromMongooseQuery(
-            Show.find({ $or: [
-              { title: re },
-              { year: re },
-              { creators: { $in: [re] } }
-            ]})
+            filteredShows(args.filter)
           )
         }
 
         return connectionFromMongooseQuery(
-          Show.find({}),
+          shows(),
           args
         )
       }
@@ -126,9 +132,7 @@ const UserType = new GraphQLObjectType({
         }
       },
       resolve: (_, args) => {
-        return Show.findOne({
-          _id: args.id
-        }).then(item => {
+        return showById(args.id).then(item => {
           return item
         })
       }
@@ -152,14 +156,17 @@ const UpdateRatingMutation = mutationWithClientMutationId({
   },
 
   outputFields: {
+    shows: {
+      type: ShowsConnection,
+      resolve: () => shows()
+    },
     showEdge: {
       type: ShowEdge,
       resolve: ({showId}) => {
-        console.log(showId)
-        const show = Show.findOne({_id: showId}).then(show => show)
-        console.log(show)
+        const show = showById(showId)
+        console.log('--show', show)
         return {
-          cursor: cursorForObjectInConnection(Show.find({}), show),
+          cursor: cursorForObjectInConnection(shows(), show),
           node: show
         }
       }
@@ -171,16 +178,9 @@ const UpdateRatingMutation = mutationWithClientMutationId({
   },
 
   mutateAndGetPayload: ({showId, rating}) => {
-    console.log(showId, rating)
-    Show.update(
-      {_id: showId},
-      {$set: {rating: rating}},
-      {upsert: true}
-    ).then(show => {
-      console.log(show)
-    })
-    Show.find({_id: showId}).then(item => console.log(item))
-    return {showId}
+    updateShowRating(showId, rating)
+    const show = showById(showId).then(show => console.log(show))
+    return {showId, show}
   }
 })
 

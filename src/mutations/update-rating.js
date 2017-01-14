@@ -1,6 +1,14 @@
 import Relay from 'react-relay'
 
-export default class ChangeRatingMutation extends Relay.Mutation {
+export default class UpdateRatingMutation extends Relay.Mutation {
+  static fragments = {
+    viewer: () => Relay.QL`
+      fragment on User {
+        id
+      }
+    `
+  }
+
   getMutation () {
     return Relay.QL`mutation {
       updateRating
@@ -10,7 +18,7 @@ export default class ChangeRatingMutation extends Relay.Mutation {
   getVariables () {
     const {viewer, showId, rating} = this.props
     return {
-      viewerId: viewer.__dataID__,
+      viewerId: viewer.id,
       showId,
       rating
     }
@@ -21,6 +29,13 @@ export default class ChangeRatingMutation extends Relay.Mutation {
       fragment on UpdateRatingPayload {
         viewer {
           id
+          shows (first:20){
+            edges {
+              node {
+                rating
+              }
+            }
+          }
         }
         showEdge {
           node {
@@ -30,6 +45,7 @@ export default class ChangeRatingMutation extends Relay.Mutation {
             year
             creators
             image
+            rating
           }
         }
       }
