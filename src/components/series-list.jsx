@@ -11,6 +11,8 @@ class SeriesList extends React.Component {
   constructor (props) {
     super(props)
     this.loadMoreShows = this.loadMoreShows.bind(this)
+    this.onChangeFilter = this.onChangeFilter.bind(this)
+    this.filterShows = debounce(this.filterShows.bind(this))
   }
 
   loadMoreShows () {
@@ -18,7 +20,22 @@ class SeriesList extends React.Component {
     relay.setVariables({number: relay.variables.number + 20})
   }
 
+  onChangeFilter (e) {
+    const searchTerm = e.target.value
+    this.filterShows(searchTerm)
+  }
+
+  filterShows (value) {
+    const {relay} = this.props
+    relay.setVariables({filter: value, number: 20},
+      (success) => {
+        console.log(success)
+      }
+    )
+  }
+
   render () {
+    console.log('-- viewer props', this.props.viewer.shows)
     const shows = this.props.viewer.shows ? this.props.viewer.shows.edges.map(edge => edge.node) : null
     const renderLoadMoreButton = () => {
       return this.props.viewer.shows.pageInfo.hasNextPage
@@ -29,8 +46,12 @@ class SeriesList extends React.Component {
     return (
       <PageContainer>
         <PageTitle>Series list</PageTitle>
+        <div>
+          <span>Search: </span>
+          <input type='text' placeholder='...' onChange={this.onChangeFilter} />
+        </div>
         <ShowsContainer>
-          {shows.map((show, index) => <ShowWithRouter show={show} key={index} />)}
+          {shows.map((show, index) => <ShowWithRouter show={show} key={show.id} />)}
         </ShowsContainer>
         <div>
           {renderLoadMoreButton()}
@@ -42,12 +63,13 @@ class SeriesList extends React.Component {
 
 export default Relay.createContainer(SeriesList, {
   initialVariables: {
-    number: 20
+    number: 20,
+    filter: ''
   },
   fragments: {
     viewer: () => Relay.QL`
       fragment on User {
-        shows (first: $number){
+        shows (first: $number, filter: $filter){
           edges {
             node {
               id
@@ -103,3 +125,18 @@ const ShowsContainer = styled.div`
   align-items: flex-start;
   align-content: flex-start;
 `
+function debounce (func, wait, immediate) {
+  var timeout
+  return function () {
+    var context = this
+    var args = arguments
+    var later = function () {
+      timeout = null
+      if (!immediate) func.apply(context, args)
+    }
+    var callNow = immediate && !timeout
+    clearTimeout(timeout)
+    timeout = setTimeout(later, wait)
+    if (callNow) func.apply(context, args)
+  }
+}

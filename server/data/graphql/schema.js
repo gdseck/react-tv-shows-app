@@ -16,36 +16,33 @@ import {
 
 import {connectionFromMongooseQuery} from 'relay-mongodb-connection'
 
-import {getUser, Show, User} from '../models/series-schema'
+import {Show, User} from '../models/series-schema'
+
+class Viewer {}
+const viewer = new Viewer()
+viewer.id = 1
 
 const {nodeInterface, nodeField} = nodeDefinitions(
   (globalId) => {
     const {type, id} = fromGlobalId(globalId)
 
-    console.log('TYPE', type)
-    console.log('ID', id)
     if (type === 'Show') {
       return Show.find({id: id})
     } else if (type === 'User') {
-      console.log('TYPE USER', User.findOne({}))
-      return User.findOne({})
+      return viewer
     }
-    console.log('before return null')
+
     return null
   },
   (obj) => {
-    console.log('OBJ', obj)
-    if (obj.title) {
-      console.log('Is ShowType')
+    if (obj instanceof Show) {
       return ShowType
     }
 
-    if (obj.name) {
-      console.log('IS USERTYPE')
+    if (obj instanceof Viewer) {
       return UserType
     }
 
-    console.log('before return null')
     return null
   }
 )
@@ -57,8 +54,7 @@ const ShowType = new GraphQLObjectType({
     id: globalIdField('Show', show => show._id),
     _id: {
       type: GraphQLString,
-      description: 'mongodb object id',
-      resolve: (obj) => obj._id
+      description: 'mongodb object id'
     },
     title: {
       type: GraphQLString,
@@ -93,8 +89,23 @@ const UserType = new GraphQLObjectType({
     id: globalIdField('User'),
     shows: {
       type: ShowsConnection,
-      args: connectionArgs,
+      args: Object.assign({}, connectionArgs, {
+        filter: {
+          type: GraphQLString
+        }
+      }),
       resolve: (_, args) => {
+        if (args.filter) {
+          const re = new RegExp(args.filter, 'i')
+          return connectionFromMongooseQuery(
+            Show.find({ $or: [
+              { title: re },
+              { year: re },
+              { creators: { $in: [re] } }
+            ]})
+          )
+        }
+
         return connectionFromMongooseQuery(
           Show.find({}),
           args
@@ -120,7 +131,7 @@ const Root = new GraphQLObjectType({
     node: nodeField,
     viewer: {
       type: UserType,
-      resolve: () => User.findOne({})
+      resolve: () => viewer
     }
   })
 })

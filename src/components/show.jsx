@@ -13,17 +13,29 @@ export default class Show extends React.Component {
   componentDidMount () {
     try {
       const image = require(`public/img/${this.props.show.image}`)
-      this.setState({image: image, hasImage: true})
+      this.setState({
+        image: image,
+        hasImage: true
+      })
     } catch (err) {
-      this.setState({image: require('public/img/notfound.png'), hasImage: false})
+      console.log('image not found')
+      console.log(err)
+      this.setState({
+        image: require('public/img/notfound.png'),
+        hasImage: false
+      })
     }
+  }
+
+  componentWillUnmount () {
+    console.log('unmounted')
   }
 
   render () {
     const {show, router} = this.props
     return (
+        // onClick={() => router.push(`/series-list/${encodeURIComponent(show._id)}`)}
       <ShowContainer
-        onClick={() => router.push(`/series-list/${encodeURIComponent(show._id)}`)}
       >
         <ShowDataList>
           <div>
@@ -33,7 +45,7 @@ export default class Show extends React.Component {
             />
           </div>
           <ShowInfo>
-            <li><b>title:</b> {show.title}</li>
+            <h2>{show.title}</h2>
             <li><b>year:</b> {show.year}</li>
             <li><b>creators:</b> {
               show.creators.map((creator, index) =>

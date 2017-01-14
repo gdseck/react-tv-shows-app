@@ -74,6 +74,6 @@ type ShowEdge {
 type User implements Node {
   # The ID of an object
   id: ID!
-  shows(after: String, first: Int, before: String, last: Int): ShowConnection
+  shows(after: String, first: Int, before: String, last: Int, filter: String): ShowConnection
   show(id: String!): Show
 }

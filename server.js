@@ -64,7 +64,7 @@ const app = new WebpackDevServer(compiler, {
   proxy: {'/graphql': `http://localhost:${GRAPHQL_PORT}`},
   publicPath: '/src',
   historyApiFallback: true,
-  stats: {colors: true}
+  stats: {colors: true, chunks: false}
 })
 
 app.use('/', express.static(path.resolve(__dirname, 'public')))
