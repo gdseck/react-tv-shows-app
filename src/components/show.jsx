@@ -38,6 +38,7 @@ export default class Show extends React.Component {
     return (
       <ShowContainer
         onClick={() => router.push(`/series-list/${encodeURIComponent(show._id)}`)}
+        onMouseOver={() => this.props.highlightShow(show)}
       >
         <ShowDataList>
           <div>
@@ -51,6 +52,7 @@ export default class Show extends React.Component {
             <Rating
               handleRatingClick={this.handleRatingClick}
               show={show}
+              updatingRating={this.props.updatingRating}
             />
           </ShowInfo>
         </ShowDataList>
@@ -71,7 +73,7 @@ const Title = styled.h3`
 
 const ShowContainer = styled.div`
   display: inline-block;
-  height: 12%;
+  // height: 12%;
   width: 9rem;
   overflow: hidden;
   // border: 1px solid lightgrey;
@@ -79,9 +81,10 @@ const ShowContainer = styled.div`
   margin: 0.2em;
   padding: 1%;
   flex: 0 1 auto;
+  color: white;
   &:hover {
-    background: ivory
-    border-color: black
+    background: ivory;
+    color: black;
   }
 `
 

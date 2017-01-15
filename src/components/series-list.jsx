@@ -5,15 +5,23 @@ import {withRouter} from 'react-router'
 import UpdateRatingMutation from 'src/mutations/update-rating'
 
 import Show from './show.jsx'
+import ShowBanner from './show-banner.jsx'
+import {StyledImage} from './show'
+import {Icon} from 'react-fa'
 
 const ShowWithRouter = withRouter(Show)
 
 class SeriesList extends React.Component {
   constructor (props) {
     super(props)
+    this.state = {
+      updatingRating: false,
+      highlightedShow: {}
+    }
     this.loadMoreShows = this.loadMoreShows.bind(this)
     this.onChangeFilter = debounce(this.onChangeFilter.bind(this), 300)
     this.handleRatingClick = this.handleRatingClick.bind(this)
+    this.highlightShow = this.highlightShow.bind(this)
   }
 
   loadMoreShows () {
@@ -25,17 +33,24 @@ class SeriesList extends React.Component {
     e.stopPropagation()
 
     const {relay, viewer} = this.props
-    console.log(viewer)
+
     const mutation = new UpdateRatingMutation({
       viewer,
       showId,
       rating
     })
-
-    relay.commitUpdate(mutation, {
-      onSuccess: (transaction) => console.log('mutation success', transaction),
-      onFailure: (transaction) => console.log('mutation failed', transaction.getError())
-    })
+    this.setState({updateingRating: true},
+      () => relay.commitUpdate(mutation, {
+        onSuccess: (transaction) => {
+          this.setState({updatingRating: false})
+          console.log('mutation success', transaction)
+        },
+        onFailure: (transaction) => {
+          this.setState({updatingRating: false})
+          console.log('mutation failed', transaction.getError())
+        }
+      })
+    )
   }
 
   onChangeFilter (value) {
@@ -49,8 +64,17 @@ class SeriesList extends React.Component {
     })
   }
 
+  highlightShow = (show) => {
+    this.setState(() => {
+      return {
+        highlightedShow: show
+      }
+    })
+  }
+
   render () {
     const shows = this.props.viewer.shows ? this.props.viewer.shows.edges.map(edge => edge.node) : null
+    const {highlightedShow} = this.state
 
     const renderLoadMoreButton = () => {
       return this.props.viewer.shows.pageInfo.hasNextPage
@@ -63,8 +87,23 @@ class SeriesList extends React.Component {
         <div>
           <SearchField type='text' placeholder='Search title, year, creator...' onChange={(e) => this.onChangeFilter(e.target.value)} />
         </div>
+        <SelectedShow>
+          {
+            Object.keys(highlightedShow).length !== 0
+              ? <ShowBanner highlightedShow={highlightedShow} />
+              : null
+          }
+        </SelectedShow>
         <ShowsContainer>
-          {shows.map((show, index) => <ShowWithRouter show={show} key={show.id} handleRatingClick={this.handleRatingClick} />)}
+          {shows.map((show, index) =>
+            <ShowWithRouter
+              show={show}
+              key={show.id}
+              handleRatingClick={this.handleRatingClick}
+              updatingRating={this.state.updatingRating}
+              highlightShow={this.highlightShow}
+            />
+          )}
         </ShowsContainer>
         <div>
           {renderLoadMoreButton()}
@@ -111,17 +150,19 @@ SeriesList.propTypes = {
 
 const PageContainer = styled.div`
   position: relative;
-  width: 100%;
-  height: calc(100% - 4.1em);
+  // width: 100%;
+  height: calc(100vh - 10em);
   margin: auto;
   border: 1px solid lightgray;
   border-radius: 3px;
   padding: 2em;
   flex: 1 1 auto;
-  max-width: 80%;
-  background: #d0d0d0;
+  max-width: 55rem;
+  background: #000;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  overflow: hidden;
+  box-shadow: inset 0 0 5px gray;
 `
 
 const SearchField = styled.input`
@@ -146,6 +187,17 @@ const SearchField = styled.input`
   }
 `
 
+const SelectedShow = styled.div`
+  background: white;
+  color: black;
+  width: 100%;
+  height: 12rem;
+  border: 1px solid gray;
+  border-radius: 3px;
+  box-shadow: 3px 3px 12px -1px grey;
+  margin-bottom: 1rem;
+`
+
 const PageTitle = styled.h1`
   text-align: center;
   font-size: 3em;
@@ -155,7 +207,7 @@ const PageTitle = styled.h1`
 const ShowsContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 93%;
+  height: 68%;
   bottom: 0;
   display: flex;
   flex-direction: row;
@@ -163,7 +215,9 @@ const ShowsContainer = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   align-content: space-between;
+  overflow: auto;
 `
+
 function debounce (func, wait, immediate) {
   var timeout
   return function () {

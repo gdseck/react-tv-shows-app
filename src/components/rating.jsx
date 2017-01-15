@@ -7,7 +7,8 @@ export default class Rating extends React.Component {
     super(props)
     this.state = {
       hoverRating: null,
-      color: 'black'
+      color: 'black',
+      loading: this.props.updatingRating
     }
   }
 
@@ -15,26 +16,34 @@ export default class Rating extends React.Component {
     const {rating} = this.props.show
     const {hoverRating} = this.props
 
+    const renderStars = () => {
+      if (this.props.updatingRating) {
+        return (
+          <Icon name='spinner' spin />
+        )
+      }
+
+      return [1, 2, 3, 4, 5].map(score => {
+        return (
+          <Star
+            key={score}
+            value={score}
+            rating={rating}
+            hoverRating={hoverRating}
+            onClick={(e) => this.props.handleRatingClick(e, score)}
+            onMouseIn={() => this.setState({hoverRating: score})}
+            onMouseOut={() => this.setState({hoverRating: null})}
+            color={rating && rating >= score ? 'goldenrod' : 'white'}
+          >
+            <Icon name='star' />
+          </Star>
+        )
+      })
+    }
+
     return (
       <div style={{textAlign: 'center'}}>
-        {
-          [1, 2, 3, 4, 5].map(score => {
-            return (
-              <Star
-                key={score}
-                value={score}
-                rating={rating}
-                hoverRating={hoverRating}
-                onClick={(e) => this.props.handleRatingClick(e, score)}
-                onMouseIn={() => this.setState({hoverRating: score})}
-                onMouseOut={() => this.setState({hoverRating: null})}
-                color={rating && rating >= score ? 'goldenrod' : ''}
-              >
-                <Icon name='star' />
-              </Star>
-            )
-          })
-        }
+        {renderStars()}
       </div>
     )
   }
