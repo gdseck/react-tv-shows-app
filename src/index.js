@@ -7,7 +7,7 @@ import useRelay from 'react-router-relay'
 import App from './components/app.jsx'
 import Home from './components/home.jsx'
 import SeriesList from './components/series-list.jsx'
-// import ShowDetails from './components/show-details.jsx'
+import ShowDetails from './components/show-details.jsx'
 
 const queries = {
   viewer: () => Relay.QL`query { viewer }`
@@ -22,8 +22,8 @@ render(
     <Route path='/' component={App}>
       <IndexRoute component={Home} />
       <Route path='/series-list' component={SeriesList} queries={queries} />
+      <Route path='/series-list/:showId' component={ShowDetails} queries={queries} />
     </Route>
   </Router>,
   document.getElementById('root')
 )
-      // <Route path='/series-list/:showId' component={ShowDetails} queries={queries} />

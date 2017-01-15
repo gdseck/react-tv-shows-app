@@ -1,13 +1,45 @@
 import React from 'react'
 import Relay from 'react-relay'
 
+import {StyledImage} from './show'
+
 class ShowDetails extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      image: require('public/img/notfound.png'),
+      hasImage: false
+    }
+    console.log('-- constructor', props.viewer)
+  }
+
+  componentDidMount () {
+    try {
+      const image = require(`public/img/${this.props.viewer.show.image}`)
+      this.setState({
+        image: image,
+        hasImage: true
+      })
+    } catch (err) {
+      console.log(err)
+      this.setState({
+        image: require('public/img/notfound.png'),
+        hasImage: false
+      })
+    }
+  }
+
   render () {
+    console.log('--render', this.props.viewer)
     const {show} = this.props.viewer
+    const {hasImage, image} = this.state
     return (
       <div>
         <h1> Show Details </h1>
-
+        <StyledImage
+          hasImage={hasImage}
+          src={image}
+        />
         <ul>
           <li key='1'>{show.title}</li>
           <li key='2'>{show.year}</li>
@@ -30,6 +62,7 @@ export default Relay.createContainer(ShowDetails, {
           title
           year
           creators
+          image
         }
       }
     `

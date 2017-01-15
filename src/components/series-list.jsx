@@ -11,8 +11,7 @@ class SeriesList extends React.Component {
   constructor (props) {
     super(props)
     this.loadMoreShows = this.loadMoreShows.bind(this)
-    this.onChangeFilter = this.onChangeFilter.bind(this)
-    this.filterShows = debounce(this.filterShows.bind(this))
+    this.onChangeFilter = debounce(this.onChangeFilter.bind(this), 300)
   }
 
   loadMoreShows () {
@@ -20,23 +19,20 @@ class SeriesList extends React.Component {
     relay.setVariables({number: relay.variables.number + 20})
   }
 
-  onChangeFilter (e) {
-    const searchTerm = e.target.value
-    this.filterShows(searchTerm)
-  }
-
-  filterShows (value) {
+  onChangeFilter (value) {
     const {relay} = this.props
-    relay.setVariables({filter: value, number: 20},
-      (success) => {
-        console.log(success)
-      }
-    )
+
+    relay.setVariables({
+      filter: value,
+      number: 20
+    }, (success) => {
+      console.log(success)
+    })
   }
 
   render () {
-    console.log('-- viewer props', this.props.viewer.shows)
     const shows = this.props.viewer.shows ? this.props.viewer.shows.edges.map(edge => edge.node) : null
+
     const renderLoadMoreButton = () => {
       return this.props.viewer.shows.pageInfo.hasNextPage
         ? <button onClick={this.loadMoreShows}>Load more</button>
@@ -48,7 +44,7 @@ class SeriesList extends React.Component {
         <PageTitle>Series list</PageTitle>
         <div>
           <span>Search: </span>
-          <input type='text' placeholder='...' onChange={this.onChangeFilter} />
+          <input type='text' placeholder='...' onChange={(e) => this.onChangeFilter(e.target.value)} />
         </div>
         <ShowsContainer>
           {shows.map((show, index) => <ShowWithRouter show={show} key={show.id} />)}

@@ -18,8 +18,6 @@ export default class Show extends React.Component {
         hasImage: true
       })
     } catch (err) {
-      console.log('image not found')
-      console.log(err)
       this.setState({
         image: require('public/img/notfound.png'),
         hasImage: false
@@ -34,8 +32,8 @@ export default class Show extends React.Component {
   render () {
     const {show, router} = this.props
     return (
-        // onClick={() => router.push(`/series-list/${encodeURIComponent(show._id)}`)}
       <ShowContainer
+        onClick={() => router.push(`/series-list/${encodeURIComponent(show._id)}`)}
       >
         <ShowDataList>
           <div>
@@ -96,7 +94,7 @@ const ShowInfo = styled.div`
   padding: 1em;
 `
 
-const StyledImage = styled.img`
+export const StyledImage = styled.img`
   height: ${props => props.hasImage ? 170 : 116}px;
   width: auto;
 `
