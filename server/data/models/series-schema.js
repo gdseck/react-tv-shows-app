@@ -12,7 +12,8 @@ const SeriesSchema = new mongoose.Schema({
   },
   title: String,
   year: String,
-  creators: [String]
+  creators: [String],
+  image: String
 })
 
 const UserSchema = new mongoose.Schema({

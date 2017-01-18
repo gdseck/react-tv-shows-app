@@ -118,9 +118,9 @@ const ShowsContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: flex-start;
-  align-content: flex-start;
+  align-content: space-between;
 `
 function debounce (func, wait, immediate) {
   var timeout
