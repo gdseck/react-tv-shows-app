@@ -74,7 +74,6 @@ const ShowContainer = styled.div`
   margin: 0.2em;
   padding: 1%;
   flex: 0 1 auto;
-  cursor: pointer;
   &:hover {
     background: ivory
     border-color: black
