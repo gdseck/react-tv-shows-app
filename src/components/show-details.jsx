@@ -10,7 +10,6 @@ class ShowDetails extends React.Component {
       image: require('public/img/notfound.png'),
       hasImage: false
     }
-    console.log('-- constructor', props.viewer)
   }
 
   componentDidMount () {

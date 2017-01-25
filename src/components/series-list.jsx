@@ -160,7 +160,7 @@ const PageContainer = styled.div`
   padding: 2em;
   flex: 1 1 auto;
   max-width: 55rem;
-  background: #000;
+  background: #fff;
   margin-top: 2rem;
   margin-bottom: 2rem;
   overflow: hidden;

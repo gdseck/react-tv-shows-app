@@ -66,7 +66,7 @@ Show.propTypes = {
   router: React.PropTypes.object
 }
 
-const Title = styled.h3`
+const Title = styled.div`
   text-align: center;
   font-size: 1.1vw;
 `
@@ -81,7 +81,7 @@ const ShowContainer = styled.div`
   margin: 0.2em;
   padding: 1%;
   flex: 0 1 auto;
-  color: white;
+  color: #000;
   &:hover {
     background: ivory;
     color: black;

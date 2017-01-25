@@ -33,7 +33,7 @@ export default class Rating extends React.Component {
             onClick={(e) => this.props.handleRatingClick(e, score)}
             onMouseIn={() => this.setState({hoverRating: score})}
             onMouseOut={() => this.setState({hoverRating: null})}
-            color={rating && rating >= score ? 'goldenrod' : 'white'}
+            color={rating && rating >= score ? 'goldenrod' : '#000'}
           >
             <Icon name='star' />
           </Star>
