@@ -83,32 +83,34 @@ class SeriesList extends React.Component {
     }
 
     return (
-      <PageContainer>
-        <div>
-          <SearchField type='text' placeholder='Search title, year, creator...' onChange={(e) => this.onChangeFilter(e.target.value)} />
-        </div>
-        <SelectedShow>
-          {
-            Object.keys(highlightedShow).length !== 0
-              ? <ShowBanner highlightedShow={highlightedShow} />
-              : null
-          }
-        </SelectedShow>
-        <ShowsContainer>
-          {shows.map((show, index) =>
-            <ShowWithRouter
-              show={show}
-              key={show.id}
-              handleRatingClick={this.handleRatingClick}
-              updatingRating={this.state.updatingRating}
-              highlightShow={this.highlightShow}
-            />
-          )}
-        </ShowsContainer>
-        <div>
-          {renderLoadMoreButton()}
-        </div>
-      </PageContainer>
+      <div>
+        <PageContainer>
+          <div>
+            <SearchField type='text' placeholder='Search title, year, creator...' onChange={(e) => this.onChangeFilter(e.target.value)} />
+          </div>
+          <SelectedShow>
+            {
+              Object.keys(highlightedShow).length !== 0
+                ? <ShowBanner highlightedShow={highlightedShow} />
+                : null
+            }
+          </SelectedShow>
+          <ShowsContainer>
+            {shows.map((show, index) =>
+              <ShowWithRouter
+                show={show}
+                key={show.id}
+                handleRatingClick={this.handleRatingClick}
+                updatingRating={this.state.updatingRating}
+                highlightShow={this.highlightShow}
+              />
+            )}
+          </ShowsContainer>
+          <div>
+            {renderLoadMoreButton()}
+          </div>
+        </PageContainer>
+      </div>
     )
   }
 }
