@@ -25,5 +25,5 @@ const StyledApp = styled.div`
   bottom: 0;
   position: relative;
   font-family: Verdana, sans-serif;
-  background: beige;
+  background: linear-gradient(top, #b3b3b0 0%,#e3e2dd 500px);
 `

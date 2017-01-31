@@ -45,34 +45,22 @@ export default (
 
 const PageContainer = styled.div`
   position: relative;
-  height: calc(100vh - 10em);
   margin: auto;
   border: 1px solid lightgray;
   padding: 2em;
   flex: 1 1 auto;
   max-width: 55rem;
   background: #fff;
-  margin-bottom: 2rem;
   overflow: hidden;
-  box-shadow: 0px 1px 2px black;
-`
-
-const PageTitle = styled.h1`
-  text-align: center;
-  font-size: 3em;
-  margin: 0.2em;
+  box-shadow: 0px 0px 8px rgba(0,0,0,0.7);
 `
 
 const ShowsContainer = styled.div`
-  position: relative;
   width: 100%;
-  height: 68%;
-  bottom: 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
   align-content: space-between;
-  overflow: auto;
 `
