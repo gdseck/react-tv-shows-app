@@ -6,7 +6,7 @@ import useRelay from 'react-router-relay'
 
 import App from './components/app.jsx'
 import Home from './components/home.jsx'
-import SeriesList from './components/series-list.jsx'
+import SeriesList from './containers/series-list-container.jsx'
 import ShowDetails from './components/show-details.jsx'
 
 const queries = {

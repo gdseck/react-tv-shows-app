@@ -1,27 +1,25 @@
 import React from 'react'
-import {Link} from 'react-router'
+import { Link } from 'react-router'
 import styled from 'styled-components'
 
 const NavBar = () => (
   <NavFixed>
     <NavWrap>
-      {/* <StyledNavBar> */}
-        <NavLogo>
-          <StyledImage src={require(`public/img/tv-icon.png`)} />
-        </NavLogo>
-        <StyledNavList>
-          <StyledNavItem key='1'>
-            <StyledLink to='/' activeClassName={'active'} onlyActiveOnIndex>
-              Home
-            </StyledLink>
-          </StyledNavItem>
-          <StyledNavItem key='2'>
-            <StyledLink to='/series-list' activeClassName={'active'}>
-              Series List
-            </StyledLink>
-          </StyledNavItem>
-        </StyledNavList>
-      {/* </StyledNavBar> */}
+      <NavLogo>
+        <StyledImage src={require(`public/img/tv-icon.png`)} />
+      </NavLogo>
+      <StyledNavList>
+        <StyledNavItem key='1'>
+          <StyledLink to='/' activeClassName={'active'} onlyActiveOnIndex>
+            Home
+          </StyledLink>
+        </StyledNavItem>
+        <StyledNavItem key='2'>
+          <StyledLink to='/series-list' activeClassName={'active'}>
+            Series List
+          </StyledLink>
+        </StyledNavItem>
+      </StyledNavList>
     </NavWrap>
   </NavFixed>
 )
@@ -62,15 +60,6 @@ const StyledLink = styled(Link)`
     color: white;
   }
 `
-
-// const StyledNavBar = styled.div`
-//   background: black;
-//   display: block;
-//   width: 100%;
-//   position: fixed;
-//   top: 0;
-//   height: 53px;
-// `
 
 const StyledImage = styled.img`
   display: block;

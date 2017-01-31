@@ -12,7 +12,7 @@ const SeriesSchema = new mongoose.Schema({
   },
   title: String,
   year: String,
-  creators: [String],
+  creators: [ String ],
   image: String,
   rating: Number
 })
@@ -35,25 +35,19 @@ export const shows = () => {
   return Show.find({})
 }
 
-export const showById = (id) => {
-  // Show.find({_id: id}).then(show => {console.log('show', show)})
-  return Show.find({_id: id})
+export const showById = id => {
+  return Show.find({ _id: id })
 }
 
-export const filteredShows = (filter) => {
+export const filteredShows = filter => {
   const re = new RegExp(filter, 'i')
-  return Show.find({ $or: [
-    { title: re },
-    { year: re },
-    { creators: { $in: [re] } }
-  ]})
+  return Show.find({
+    $or: [ { title: re }, { year: re }, { creators: { $in: [ re ] } } ]
+  })
 }
 
 export const updateShowRating = (id, rating) => {
   console.log()
-  return Show.update(
-    {_id: id},
-    {$set: {rating: rating}},
-    {upsert: true}
-  ).then(update => console.log(update))
+  return Show
+    .update({ _id: id }, { $set: { rating: rating } }, { upsert: true })
 }

@@ -6,9 +6,7 @@ import NavBar from './navbar.jsx'
 export default class App extends React.Component {
   render () {
     return (
-      <StyledApp
-          background={require(`public/img/tv-color-background.jpg`)}
-      >
+      <StyledApp background={require(`public/img/tv-color-background.jpg`)}>
         <NavBar />
         {this.props.children}
       </StyledApp>
@@ -16,12 +14,9 @@ export default class App extends React.Component {
   }
 }
 
-App.propTypes = {
-  children: React.PropTypes.object
-}
+App.propTypes = { children: React.PropTypes.object }
 
 const StyledApp = styled.div`
-  background: url(${props => props.background})
   display: flex;
   flex-flow: column nowrap;
   min-height: calc(100vh - 4em);
@@ -30,5 +25,5 @@ const StyledApp = styled.div`
   bottom: 0;
   position: relative;
   font-family: Verdana, sans-serif;
-  // background: beige;
+  background: beige;
 `
